@@ -1,0 +1,38 @@
+{
+  "name": "@quoin/react-utils",
+  "version": "1.0.0",
+  "description": "Utility functions for React",
+  "author": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
+    "coverage": "nyc --report-dir=reports/coverage npm test",
+    "coverage-report": "nyc report --reporter=text --reporter=text-summary",
+    "prepack": "npm run coverage && npm run babel",
+    "test": "mocha --require @babel/register --require src/helpers.test.js \"src/**/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quoin/react-utils.git"
+  },
+  "keywords": [
+    "Quoin",
+    "React"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Quoin/react-utils/issues"
+  },
+  "homepage": "https://github.com/Quoin/react-utils#readme",
+  "devDependencies": {
+    "@babel/cli": "~7.7.5",
+    "@babel/core": "~7.7.5",
+    "@babel/preset-env": "~7.7.6",
+    "@babel/preset-react": "~7.7.4",
+    "@babel/register": "~7.7.4",
+    "chai": "~4.2.0",
+    "dirty-chai": "~2.0.1",
+    "mocha": "~6.2.2",
+    "nyc": "~14.1.1"
+  }
+}

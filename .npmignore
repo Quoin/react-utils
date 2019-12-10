@@ -1,0 +1,6 @@
+/.babelrc
+/.nycrc
+/dist/**/*.test.js
+/quoin-react-utils-*.tgz
+/reports
+/src

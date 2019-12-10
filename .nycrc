@@ -1,0 +1,22 @@
+{
+  "all": true,
+  "temp-dir": "./reports/coverage",
+  "check-coverage": false,
+  "require": [
+    "@babel/register"
+  ],
+  "exclude": [
+    "dist/",
+    "src/**/*.test.js"
+  ],
+  "reporter": [
+    "cobertura",
+    "html"
+  ],
+  "watermarks": {
+    "statements": [50, 80],
+    "lines": [50, 80],
+    "functions": [50, 80],
+    "branches": [50, 80]
+  }
+}
