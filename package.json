@@ -9,7 +9,7 @@
     "coverage": "nyc --report-dir=reports/coverage npm test",
     "coverage-report": "nyc report --reporter=text --reporter=text-summary",
     "prepack": "npm run coverage && npm run babel",
-    "test": "mocha --require @babel/register --require src/helpers.test.js \"src/**/*.test.js\""
+    "test": "mocha --require @babel/register --require src/helpers.test.js \"src/**/*.test.js?(x)\""
   },
   "repository": {
     "type": "git",
