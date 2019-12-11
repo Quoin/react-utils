@@ -1,0 +1,7 @@
+{
+  "root": true,
+  "extends": "@quoin/eslint-config-quoin/client-test",
+  "globals": {
+    "expect": true
+  }
+}

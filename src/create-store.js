@@ -1,6 +1,8 @@
 import { compose } from 'redux';
 import { applyMiddleware, createLogger, createStore } from 'redux-logger';
 
+import { INIT_TYPE } from './constants';
+
 export default (reducers, initialState, middlewares = [], inDevelopment = false, projectInitType = null) => {
     let composeEnhancers = compose;
 

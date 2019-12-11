@@ -1,4 +1,5 @@
 /.babelrc
+/.eslintrc.*
 /.nycrc
 /.travis.yml
 /dist/**/*.test.js

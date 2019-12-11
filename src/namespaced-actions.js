@@ -16,4 +16,4 @@ export default (namespace, baseKeys) => {
         }),
         {}
     ));
-}
+};

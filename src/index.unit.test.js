@@ -11,7 +11,7 @@ describe("src/index", () => {
         'actionCreator',
         'createStore',
         'namespace',
-        'namespacedActions',
+        'namespacedActions'
     ].forEach((property) => {
         it(`should have property '${property}'`, () => {
             expect(clone, `Property ${property}`).to.have.property(property);

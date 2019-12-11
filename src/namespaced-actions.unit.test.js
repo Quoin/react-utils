@@ -22,12 +22,11 @@ describe("src/namespaced-actions", () => {
         expect(() => moduleToTest(() => {})).to.throw(Error, /^Missing baseKeys$/);
     });
 
-    it (`should return known object`, () => {
+    it(`should return known object`, () => {
         const value = moduleToTest(myNamespace, [ 'FOO', 'BAR' ]);
         expect(value).to.deep.equal({
             FOO: 'QUOIN-REACT-UTILS.FOO',
-            BAR: 'QUOIN-REACT-UTILS.BAR',
+            BAR: 'QUOIN-REACT-UTILS.BAR'
         });
     });
-
 });
