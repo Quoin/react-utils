@@ -1,5 +1,6 @@
 {
   "all": true,
+  "cache": false,
   "temp-dir": "./reports/coverage",
   "check-coverage": false,
   "require": [
@@ -7,7 +8,12 @@
   ],
   "exclude": [
     "dist/",
-    "src/**/*.test.js"
+    "src/**/*.test.js",
+    "src/**/*.test.jsx"
+  ],
+  "extension": [
+    ".js",
+    ".jsx"
   ],
   "reporter": [
     "cobertura",
