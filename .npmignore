@@ -1,5 +1,6 @@
 /.babelrc
 /.nycrc
+/.travis.yml
 /dist/**/*.test.js
 /quoin-react-utils-*.tgz
 /reports

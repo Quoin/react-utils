@@ -1,5 +1,7 @@
 # Quoin's react utils
 
+[![Build Status](https://travis-ci.com/Quoin/react-utils.svg?branch=master)](https://travis-ci.com/Quoin/react-utils)
+
 Utility library to use React.
 
 
