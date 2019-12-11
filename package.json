@@ -8,7 +8,7 @@
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
     "coverage": "nyc --report-dir=reports/coverage npm test",
     "coverage-report": "nyc report --reporter=text --reporter=text-summary",
-    "prepack": "npm run coverage && npm run babel",
+    "prepack": "npm run coverage && npm run coverage-report && npm run babel",
     "test": "mocha --require @babel/register --require src/helpers.test.js \"src/**/*.test.js?(x)\""
   },
   "repository": {
@@ -34,5 +34,9 @@
     "dirty-chai": "~2.0.1",
     "mocha": "~6.2.2",
     "nyc": "~14.1.1"
+  },
+  "dependencies": {
+    "redux": "~4.0.4",
+    "redux-logger": "~3.0.6"
   }
 }

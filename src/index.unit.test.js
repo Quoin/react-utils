@@ -9,6 +9,7 @@ describe("src/index", () => {
 
     [
         'actionCreator',
+        'createStore',
         'namespace',
         'namespacedActions',
     ].forEach((property) => {

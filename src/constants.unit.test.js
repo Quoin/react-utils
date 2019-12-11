@@ -13,6 +13,7 @@ describe(`src/constants`, () => {
 
     [
         'ERROR_BOUNDARY_SUFFIX',
+        'INIT_TYPE'
     ].forEach((property) => {
         it(`should have property '${property}'`, () => {
             expect(clone).to.have.property(property);
