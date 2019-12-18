@@ -8,6 +8,7 @@
   ],
   "exclude": [
     "dist/",
+    "reports/",
     "src/**/*.test.js",
     "src/**/*.test.jsx"
   ],
