@@ -1,0 +1,17 @@
+{
+  "absolute": false,
+  "formatsExts": {
+    "javascript": "js,jsx",
+    "css": "less,css",
+    "markdown": "md"
+  },
+  "mode": "strict",
+  "output": "./reports/jscpd",
+  "reporters": [
+    "console",
+    "json",
+    "xml",
+    "html",
+    "time"
+  ]
+}
