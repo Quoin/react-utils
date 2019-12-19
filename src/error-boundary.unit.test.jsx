@@ -28,5 +28,14 @@ describe(`src/error-boundary`, () => {
         expect(wrapper.html()).to.equal(`<div class="test">TestComponent content</div>`);
     });
 
-    it.skip(`detects component errors - TODO`, () => {});
+    it(`detects component errors`, () => {
+        const Component = (props) => {
+            return '<div>Should fail</div>'.map(() => {});
+        };
+        Component.displayName = DISPLAY_NAME;
+
+        const BoundedComponent = moduleToTest(Component);
+        const wrapper = mount(<BoundedComponent />);
+        expect(wrapper.html()).to.equal(`<h1 class="text-danger">*** REACT ERROR: TestComponent ***</h1>`);
+    });
 });
