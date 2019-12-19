@@ -7,6 +7,7 @@
  */
 
 import baseComponentName from './base-component-name';
+import { ERROR_BOUNDARY_SUFFIX } from './constants';
 
 export default (Component) => {
     const componentName = baseComponentName(Component.displayName);
@@ -27,7 +28,7 @@ export default (Component) => {
             console.error(
                 `${ErrorBoundary.displayName}.componentDidCatch():`,
                 `error=`, error,
-                `info=`, (info && info.componentStack) ? info.componentStack : info
+                `errorInfo=`, (errorInfo && errorInfo.componentStack) ? errorInfo.componentStack : errorInfo
             );
         }
 

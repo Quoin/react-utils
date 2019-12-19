@@ -7,7 +7,7 @@ const ATTRIBUTE = 'some-attribute';
 const EMPTY_STATE = Map();
 const EMPTY_SUBSTATE = EMPTY_STATE.set(namespace(), Map());
 const WITHOUT_ATTRIBUTE = EMPTY_STATE.set(namespace(), fromJS({ other: 'attribute' }));
-const WITH_ATTRIBUTE = WITHOUT_ATTRIBUTE.setIn([namespace(), ATTRIBUTE], 'something');
+const WITH_ATTRIBUTE = WITHOUT_ATTRIBUTE.setIn([ namespace(), ATTRIBUTE ], 'something');
 
 describe(`src/get-substate-attribute`, () => {
     it(`exposes a function with 4 params`, () => {
