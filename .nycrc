@@ -18,6 +18,7 @@
   ],
   "reporter": [
     "cobertura",
+    "lcov",
     "html"
   ],
   "watermarks": {

@@ -1,8 +1,11 @@
 language: node_js
 node_js:
   - "8"
-install: npm ci
-script: npm run -s coverage
+install:
+  - npm ci
+script:
+  - npm run -s coverage
+  - npm run coveralls
 branches:
   only:
     - master
