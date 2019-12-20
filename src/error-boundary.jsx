@@ -28,7 +28,7 @@ export default (Component) => {
             console.error(
                 `${ErrorBoundary.displayName}.componentDidCatch():`,
                 `error=`, error,
-                `errorInfo=`, (errorInfo && errorInfo.componentStack) ? errorInfo.componentStack : errorInfo
+                `errorInfo=`, errorInfo && errorInfo.componentStack
             );
         }
 

@@ -1,20 +1,18 @@
-import { compose } from 'redux';
-import { applyMiddleware, createLogger, createStore } from 'redux-logger';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { createLogger } from 'redux-logger';
 
 import { INIT_TYPE } from './constants';
 
-export default (reducers, initialState, middlewares = [], inDevelopment = false, projectInitType = null) => {
+export default (reducers, initialState, middlewares, inDevelopment, projectInitType) => {
     let composeEnhancers = compose;
 
     const clonedMiddlewares = [ ...middlewares ];
 
     if (inDevelopment) {
-        const loggerOptions = { collapsed: true };
-        if (typeof initialState.toJS === 'function' && typeof initialState.isMap === 'function' && initialState.isMap()) {
-            loggerOptions.stateTransformer = (state) => state.toJS();
-        }
-
-        clonedMiddlewares.push(createLogger(loggerOptions));
+        clonedMiddlewares.push(createLogger({
+            collapsed: true,
+            stateTransformer: (state) => state.toJS()
+        }));
 
         if (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
             composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
