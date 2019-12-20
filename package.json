@@ -69,6 +69,7 @@
   "dependencies": {
     "immutable": "~4.0.0-rc.12",
     "redux": "~4.0.4",
+    "redux-concatenate-reducers": "~1.0.0",
     "redux-logger": "~3.0.6"
   }
 }

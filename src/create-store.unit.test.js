@@ -1,24 +1,14 @@
 import { fromJS } from 'immutable';
 
+import {
+    TEST_INIT_ATTRIBUTE,
+    TEST_INIT_TYPE,
+    TEST_INIT_VALUE,
+    TEST_REDUCER
+} from './test-utils.test';
+
 import moduleToTest from './create-store';
 
-const DUMMY_INIT_TYPE = 'THIS-IS-A-TEST-TYPE-FOR-TEST';
-const DUMMY_INIT_ATTRIBUTE = 'THIS-IS-A-TEST-ATTRIBUTE';
-const DUMMY_INIT_VALUE = 'THIS-IS-A-TEST-VALUE';
-
-const DUMMY_REDUCER = (state, action) => {
-    if (action && action.type) {
-        switch (action.type) {
-            case DUMMY_INIT_TYPE:
-                return state.set(DUMMY_INIT_ATTRIBUTE, DUMMY_INIT_VALUE);
-
-            default:
-                return state;
-        }
-    } else {
-        return state;
-    }
-};
 
 const isAStore = (store) => {
     expect(store).to.have.property('dispatch');
@@ -33,14 +23,14 @@ describe(`src/create-store`, () => {
     });
 
     it(`returns a store`, () => {
-        const store = moduleToTest(DUMMY_REDUCER, fromJS({}), [], false);
+        const store = moduleToTest(TEST_REDUCER, fromJS({}), [], false);
         isAStore(store);
 
         // TODO: Verify that the reducer is used?
     });
 
     it(`returns a store in development mode`, () => {
-        const store = moduleToTest(DUMMY_REDUCER, fromJS({}), [], true);
+        const store = moduleToTest(TEST_REDUCER, fromJS({}), [], true);
         isAStore(store);
 
         // TODO: Verify that the reducer is used?
@@ -48,10 +38,10 @@ describe(`src/create-store`, () => {
     });
 
     it(`calls the project init type`, () => {
-        const store = moduleToTest(DUMMY_REDUCER, fromJS({}), [], false, DUMMY_INIT_TYPE);
+        const store = moduleToTest(TEST_REDUCER, fromJS({}), [], false, TEST_INIT_TYPE);
         isAStore(store);
-        expect(store.getState()).to.deep.equal(fromJS({
-            [DUMMY_INIT_ATTRIBUTE]: DUMMY_INIT_VALUE
+        expect(store.getState()).to.equal(fromJS({
+            [TEST_INIT_ATTRIBUTE]: TEST_INIT_VALUE
         }));
     });
 });

@@ -17,12 +17,12 @@ describe(`src/get-substate`, () => {
 
     it(`returns default Map when state not initialized`, () => {
         const substate = moduleToTest(EMPTY_STATE, namespace);
-        expect(substate).to.deep.equal(Map());
+        expect(substate).to.equal(Map());
     });
 
     it(`returns known substate`, () => {
         const substate = moduleToTest(STATE, namespace);
-        expect(substate).to.deep.equal(fromJS({
+        expect(substate).to.equal(fromJS({
             foo: 'bar'
         }));
     });

@@ -13,7 +13,7 @@ describe(`src/set-substate-attribute`, () => {
     it(`add to an empty state`, () => {
         const state = fromJS({});
         const newState = moduleToTest(state, namespace, ATTRIBUTE, 'foobar');
-        expect(newState).to.deep.equal(fromJS({
+        expect(newState).to.equal(fromJS({
             [namespace()]: {
                 [ATTRIBUTE]: 'foobar'
             }

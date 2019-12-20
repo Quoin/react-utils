@@ -1,7 +1,7 @@
 import { mount, shallow } from 'enzyme';
 
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
-import TestComponent, { DISPLAY_NAME } from './test-component.test';
+import { TestComponent } from './test-utils.test';
 
 import moduleToTest from './error-boundary';
 
@@ -13,7 +13,7 @@ describe(`src/error-boundary`, () => {
     it(`wraps another component`, () => {
         const BoundedComponent = moduleToTest(TestComponent);
 
-        expect(BoundedComponent).to.have.property('displayName', `${DISPLAY_NAME}${ERROR_BOUNDARY_SUFFIX}`);
+        expect(BoundedComponent).to.have.property('displayName', `${TestComponent.displayName}${ERROR_BOUNDARY_SUFFIX}`);
     });
 
     it(`has no errors initially`, () => {
@@ -32,10 +32,10 @@ describe(`src/error-boundary`, () => {
         const Component = (props) => {
             return '<div>Should fail</div>'.map(() => {});
         };
-        Component.displayName = DISPLAY_NAME;
+        Component.displayName = TestComponent.displayName;
 
         const BoundedComponent = moduleToTest(Component);
         const wrapper = mount(<BoundedComponent />);
-        expect(wrapper.html()).to.equal(`<h1 class="text-danger">*** REACT ERROR: TestComponent ***</h1>`);
+        expect(wrapper.html()).to.equal(`<h1 class="text-danger">*** REACT ERROR: ${TestComponent.displayName} ***</h1>`);
     });
 });

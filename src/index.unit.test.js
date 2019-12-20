@@ -9,6 +9,7 @@ describe("src/index", () => {
 
     [
         'actionCreator',
+        'concatenateReducers',
         'createStore',
         'namespace',
         'namespacedActions'

@@ -13,7 +13,7 @@ describe(`src/set-substate`, () => {
 
     it(`sets when empty state`, () => {
         const value = moduleToTest(EMPTY_STATE, namespace, 'foobar');
-        expect(value).to.deep.equal(fromJS({
+        expect(value).to.equal(fromJS({
             [namespace()]: 'foobar'
         }));
     });
@@ -23,7 +23,7 @@ describe(`src/set-substate`, () => {
             [namespace()]: 'old value'
         });
         const value = moduleToTest(state, namespace, 'new value');
-        expect(value).to.deep.equal(fromJS({
+        expect(value).to.equal(fromJS({
             [namespace()]: 'new value'
         }));
     });
@@ -33,7 +33,7 @@ describe(`src/set-substate`, () => {
             [`not-${namespace()}`]: 'other value'
         });
         const value = moduleToTest(state, namespace, 'new value');
-        expect(value).to.deep.equal(fromJS({
+        expect(value).to.equal(fromJS({
             [`not-${namespace()}`]: 'other value',
             [namespace()]: 'new value'
         }));
