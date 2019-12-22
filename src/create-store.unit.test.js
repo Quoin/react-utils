@@ -9,7 +9,6 @@ import {
 
 import moduleToTest from './create-store';
 
-
 const isAStore = (store) => {
     expect(store).to.have.property('dispatch');
     expect(store).to.have.property('getState');

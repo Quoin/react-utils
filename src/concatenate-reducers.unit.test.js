@@ -18,7 +18,7 @@ const basicReducer = (state, action) => {
         default:
             return state;
     }
-}
+};
 
 const GUARDED_TYPE = 'test-guarded-reducer-type';
 const GUARDED_ATTRIBUTE = 'test-guarded-reducer-attribute';
@@ -43,7 +43,7 @@ describe(`src/concatenate-reducers`, () => {
         let reducer;
 
         beforeEach(() => {
-            reducer = moduleToTest([basicReducer]);
+            reducer = moduleToTest([ basicReducer ]);
         });
 
         it(`handles wrong type`, () => {
@@ -63,7 +63,7 @@ describe(`src/concatenate-reducers`, () => {
         let reducer;
 
         beforeEach(() => {
-            reducer = moduleToTest([guardedDefinition]);
+            reducer = moduleToTest([ guardedDefinition ]);
         });
 
         it(`handles wrong type`, () => {
