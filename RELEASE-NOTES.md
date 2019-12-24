@@ -1,6 +1,10 @@
 # Quoin's React utils library release notes
 
-## 0.0.2 - 2019-12-14
+## 0.0.3 - 2019-12-24
+
+- Exporting `getSubstate()`, `getSubstateAttribute()`, `setSubstate()`, and `setSubstateAttribute()`.
+
+## 0.0.2 - 2019-12-24
 
 - Adding `boundComponent()`.
 - Exporting `errorBoundary()`.
