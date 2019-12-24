@@ -1,13 +1,17 @@
 {
   "name": "@quoin/react-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility functions for React",
-  "author": "",
+  "author": {
+    "name": "Hữu Ðà Trần",
+    "email": "huuda.tran@quoininc.com",
+    "url": "https://www.quoininc.com/staff/huu-da-tran/"
+  },
   "main": "dist/index.js",
   "scripts": {
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
     "check": "npm run eslint && npm run jscpd",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist quoin-react-utils-*.tgz",
     "precoverage": "rimraf reports/nyc_output reports/coverage",
     "coveralls": "cat reports/coverage/lcov.info | coveralls",
     "coverage": "nyc --report-dir=reports/coverage npm test",
@@ -40,8 +44,10 @@
     "@babel/preset-react": "~7.7.4",
     "@babel/register": "~7.7.4",
     "@quoin/eslint-config-quoin": "~0.3.3",
+    "canvas": "~2.6.1",
     "chai": "~4.2.0",
     "chai-immutable": "~2.1.0",
+    "classnames": "~2.2.6",
     "coveralls": "~3.0.9",
     "dirty-chai": "~2.0.1",
     "enzyme": "~3.10.0",
@@ -55,21 +61,29 @@
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-react": "~7.17.0",
     "eslint-plugin-standard": "~4.0.1",
+    "immutable": "~3.8.2",
     "jscpd": "~2.0.16",
     "jsdom": "~15.2.1",
     "mocha": "~6.2.2",
     "nyc": "~14.1.1",
+    "prop-types": "~15.7.2",
     "react": "~16.12.0",
     "react-dom": "~16.12.0",
+    "react-redux": "~7.1.3",
+    "redux": "~4.0.4",
+    "redux-concatenate-reducers": "~1.0.0",
+    "redux-logger": "~3.0.6",
     "rimraf": "~3.0.0"
   },
   "peerDependencies": {
-    "react": ">=16.12.0"
-  },
-  "dependencies": {
-    "immutable": "~4.0.0-rc.12",
-    "redux": "~4.0.4",
-    "redux-concatenate-reducers": "~1.0.0",
-    "redux-logger": "~3.0.6"
+    "classnames": ">=2.2.6",
+    "immutable": ">=3.8.2",
+    "prop-types": ">=15.7.2",
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0",
+    "react-redux": ">=7.1.3",
+    "redux": ">=4.0.4",
+    "redux-concatenate-reducers": ">=1.0.0",
+    "redux-logger": ">=3.0.6"
   }
 }

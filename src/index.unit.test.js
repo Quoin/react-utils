@@ -9,10 +9,21 @@ describe("src/index", () => {
 
     [
         'actionCreator',
+        'batch',
+        'boundComponent',
+        'classnames',
         'concatenateReducers',
         'createStore',
+        'errorBoundary',
+        'Fragment',
         'namespace',
-        'namespacedActions'
+        'namespacedActions',
+        'PropTypes',
+        'render',
+        'rendereToString',
+        'useDispatch',
+        'useEffect',
+        'useSelector'
     ].forEach((property) => {
         it(`should have property '${property}'`, () => {
             expect(clone, `Property ${property}`).to.have.property(property);
