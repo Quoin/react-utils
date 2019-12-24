@@ -21,6 +21,7 @@ describe("src/index", () => {
         'namespace',
         'namespacedActions',
         'PropTypes',
+        'Provider',
         'render',
         'rendereToString',
         'setSubstate',

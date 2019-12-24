@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.0.4 - 2019-12-24
+
+- Exporting `Provider`.
+
 ## 0.0.3 - 2019-12-24
 
 - Exporting `getSubstate()`, `getSubstateAttribute()`, `setSubstate()`, and `setSubstateAttribute()`.

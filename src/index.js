@@ -3,7 +3,7 @@ export { default as PropTypes } from 'prop-types';
 export { Fragment, useEffect } from 'react';
 export { render } from 'react-dom';
 export { rendereToString } from 'react-dom/server';
-export { batch, useDispatch, useSelector } from 'react-redux';
+export { batch, Provider, useDispatch, useSelector } from 'react-redux';
 
 export { default as actionCreator } from './action-creator';
 export { default as boundComponent } from './bound-component';
