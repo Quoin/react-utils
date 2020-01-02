@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.0.5 - 2020-01-02
+
+- Exporting `INIT_TYPE`.
+
 ## 0.0.4 - 2019-12-24
 
 - Exporting `Provider`.
