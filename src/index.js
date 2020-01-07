@@ -3,6 +3,7 @@ export { default as PropTypes } from 'prop-types';
 export { Fragment, useEffect } from 'react';
 export { render } from 'react-dom';
 export { rendereToString } from 'react-dom/server';
+export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
 export { batch, Provider, useDispatch, useSelector } from 'react-redux';
 
 export { default as actionCreator } from './action-creator';

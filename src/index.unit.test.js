@@ -18,6 +18,7 @@ describe("src/index", () => {
         'getSubstate',
         'getSubstateAttribute',
         'Fragment',
+        'ImmutablePropTypes',
         'INIT_TYPE',
         'namespace',
         'namespacedActions',
