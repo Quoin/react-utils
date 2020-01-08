@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.0.7 - 2020-01-08
+
+- Exporting `React`.
+
 ## 0.0.6 - 2020-01-07
 
 - Adding `react-immutable-proptypes`.

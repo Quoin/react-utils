@@ -6,6 +6,8 @@
  *  Taken from https://reactjs.org/docs/error-boundaries.html
  */
 
+import React from 'react';
+
 import baseComponentName from './base-component-name';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
 

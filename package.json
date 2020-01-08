@@ -1,6 +1,6 @@
 {
   "name": "@quoin/react-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Utility functions for React",
   "author": {
     "name": "Hữu Ðà Trần",
@@ -22,7 +22,7 @@
     "eslint:client-test": "eslint --fix --config=.eslintrc.client.test.json --ignore-pattern=helpers.test.js \"src/**/*.test.js?(x)\"",
     "jscpd": "jscpd src",
     "prepack": "npm run check && npm run clean && npm run coverage && npm run coverage-report && npm run babel",
-    "test": "mocha --require @babel/register --require src/helpers.test.js \"src/**/*.test.js?(x)\""
+    "test": "mocha \"src/**/*.test.js?(x)\""
   },
   "repository": {
     "type": "git",
@@ -87,5 +87,11 @@
     "redux": ">=4.0.4",
     "redux-concatenate-reducers": ">=1.0.0",
     "redux-logger": ">=3.0.6"
+  },
+  "mocha": {
+    "require": [
+      "@babel/register",
+      "./src/helpers.test.js"
+    ]
   }
 }

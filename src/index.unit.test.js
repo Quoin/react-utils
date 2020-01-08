@@ -22,6 +22,7 @@ describe("src/index", () => {
         'INIT_TYPE',
         'namespace',
         'namespacedActions',
+        'React',
         'PropTypes',
         'Provider',
         'render',
