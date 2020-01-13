@@ -28,6 +28,7 @@
     "eslint:client": "eslint --fix --config=.eslintrc.client.json --ignore-pattern=\"*.test.js\" --ignore-pattern=\"*.test.jsx\" src",
     "eslint:client-test": "eslint --fix --config=.eslintrc.client.test.json --ignore-pattern=helpers.test.js \"src/**/*.test.js?(x)\"",
     "jscpd": "jscpd src",
+    "tsc": "tsc --noEmit",
     "prepack": "run-s check clean coverage coverage-report babel",
     "stryker": "stryker run",
     "test": "mocha \"src/**/*.test.js?(x)\""
@@ -57,6 +58,12 @@
     "@stryker-mutator/javascript-mutator": "^2.5.0",
     "@stryker-mutator/mocha-framework": "^2.5.0",
     "@stryker-mutator/mocha-runner": "^2.5.0",
+    "@types/classnames": "^2.2.9",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-immutable-proptypes": "^2.1.0",
+    "@types/react-redux": "^7.1.5",
     "canvas": "~2.6.1",
     "chai": "~4.2.0",
     "chai-immutable": "~2.1.0",
@@ -90,7 +97,8 @@
     "redux-concatenate-reducers": "~1.0.0",
     "redux-logger": "~3.0.6",
     "rimraf": "~3.0.1",
-    "stryker-cli": "^1.0.0"
+    "stryker-cli": "^1.0.0",
+    "typescript": "^3.7.4"
   },
   "peerDependencies": {
     "classnames": ">=2.2.6",
