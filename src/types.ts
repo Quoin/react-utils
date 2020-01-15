@@ -9,7 +9,7 @@ export interface IAction {
 
 export interface ISubstate extends Map<string, any> {}
 
-export interface IState extends Map<string, ISubstate> {}
+export type IState = Map<string, ISubstate> | undefined;
 
 export type HelloReducer = (state: IState, action: IAction) => IState;
 
