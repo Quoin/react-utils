@@ -2,8 +2,9 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 
 import { INIT_TYPE } from './constants';
+import { IActionType, IState as Hello, HelloReducer } from './types';
 
-export default (reducers, initialState, middlewares, inDevelopment, projectInitType) => {
+export default (reducers: HelloReducer, initialState: Hello, middlewares: Array<Function>, inDevelopment: boolean, projectInitType: IActionType) => {
     let composeEnhancers = compose;
 
     const clonedMiddlewares = [ ...middlewares ];

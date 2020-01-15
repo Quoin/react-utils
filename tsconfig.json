@@ -1,15 +1,24 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es6",
-    "jsx": "react",
+    "allowUmdGlobalAccess": true,
     "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "outDir": "./dist/",
     "paths": {
+      "redux-concatenate-reducers": [ "src/@types/redux-concatenate-reducers" ]
     },
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
   },
   "include": [
     "./src"
