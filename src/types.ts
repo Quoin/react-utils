@@ -1,21 +1,22 @@
 import { Map } from 'immutable';
+import { Reducer } from 'redux';
 
 export type IActionType = string;
 
 export interface IAction {
   type: IActionType;
-  payload: object;
+  payload?: object;
 }
 
 export interface ISubstate extends Map<string, any> {}
 
-export type IState = Map<string, ISubstate> | undefined;
+export type IState = Map<string, ISubstate>;
 
-export type HelloReducer = (state: IState, action: IAction) => IState;
+export type IReducer = Reducer<IState, IAction>;
 
 export interface IReducerDefinition {
   actions: IActionType[];
-  reducer: HelloReducer
+  reducer: IReducer
 }
 
 export type INamespace = (path?: string) => string;
