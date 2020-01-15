@@ -1,10 +1,17 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import { Map } from 'immutable';
+import { applyMiddleware, compose, createStore, Middleware } from 'redux';
 import { createLogger } from 'redux-logger';
 
 import { INIT_TYPE } from './constants';
-import { IActionType, IState as Hello, HelloReducer } from './types';
+import { IActionType, IState, IReducer } from './types';
 
-export default (reducers: HelloReducer, initialState: Hello, middlewares: Array<Function>, inDevelopment: boolean, projectInitType: IActionType) => {
+export default (
+    reducers: IReducer,
+    initialState: IState = Map(),
+    middlewares: Array<Middleware<any, any, any>>,
+    inDevelopment: boolean,
+    projectInitType: IActionType
+) => {
     let composeEnhancers = compose;
 
     const clonedMiddlewares = [ ...middlewares ];
