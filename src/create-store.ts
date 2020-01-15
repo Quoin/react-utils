@@ -8,7 +8,7 @@ import { IActionType, IState, IReducer } from './types';
 export default (
     reducers: IReducer,
     initialState: IState = Map(),
-    middlewares: Array<Middleware<any, any, any>>,
+    middlewares: Middleware<any, any, any>[],
     inDevelopment: boolean,
     projectInitType: IActionType
 ) => {
