@@ -1,4 +1,6 @@
-export default (namespace, baseKeys) => {
+import { INamespace } from './types';
+
+export default (namespace: INamespace, baseKeys: string[]) => {
     if (!namespace) {
         throw new Error(`Missing namespace`);
     } else if (typeof namespace !== 'function') {

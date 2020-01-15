@@ -28,14 +28,18 @@
     "eslint:client": "eslint --fix --config=.eslintrc.client.json --ignore-pattern=\"*.test.js\" --ignore-pattern=\"*.test.jsx\" src",
     "eslint:client-test": "eslint --fix --config=.eslintrc.client.test.json --ignore-pattern=helpers.test.js \"src/**/*.test.js?(x)\"",
     "jscpd": "jscpd src",
-    "tsc": "tsc --noEmit",
-    "prepack": "run-s check clean coverage coverage-report babel",
+    "tsc": "tsc",
+    "prepack": "run-s clean tsc",
+    "prepack2": "run-s check clean coverage coverage-report babel",
     "stryker": "stryker run",
     "test": "mocha \"src/**/*.test.js?(x)\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Quoin/react-utils.git"
+  },
+  "publicConfig": {
+    "access": "public"
   },
   "keywords": [
     "Quoin",
@@ -64,6 +68,7 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-immutable-proptypes": "^2.1.0",
     "@types/react-redux": "^7.1.5",
+    "@types/redux-logger": "^3.0.7",
     "canvas": "~2.6.1",
     "chai": "~4.2.0",
     "chai-immutable": "~2.1.0",
@@ -101,6 +106,12 @@
     "typescript": "^3.7.4"
   },
   "peerDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-immutable-proptypes": "^2.1.0",
+    "@types/react-redux": "^7.1.5",
     "classnames": ">=2.2.6",
     "immutable": ">=3.8.2",
     "prop-types": ">=15.7.2",
@@ -113,6 +124,11 @@
     "redux-logger": ">=3.0.6",
     "react-router-dom": ">=5.1.2"
   },
+  "files": [
+    "dist/**/*",
+    "RELEASE-NOTES.md"
+  ],
+  "types": "./dist/index.d.ts",
   "mocha": {
     "require": [
       "@babel/register",
