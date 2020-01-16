@@ -2,7 +2,7 @@ import {
     ERROR_BOUNDARY_SUFFIX
 } from './constants';
 
-export default (componentName) => {
+export default (componentName: string): string => {
     let cleanedName = componentName || '';
 
     const indexOfErrorBoundarySuffix = cleanedName.indexOf(ERROR_BOUNDARY_SUFFIX);
