@@ -7,6 +7,11 @@
     "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
+    "lib": [
+      "dom",
+      "ESNext",
+      "ESNext.Symbol"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -18,7 +23,7 @@
     },
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
+    "target": "ES6",
   },
   "include": [
     "./src"
