@@ -6,26 +6,34 @@
  *  Taken from https://reactjs.org/docs/error-boundaries.html
  */
 
-import React from 'react';
-
+import BaseClassComponent from './base-class-component';
 import baseComponentName from './base-component-name';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
+import { BaseError } from './types';
 
-export default (Component) => {
+interface InnerState {
+  hasError: boolean;
+}
+
+export default (Component: BaseClassComponent<any, any>): BaseClassComponent<any, any> => {
     const componentName = baseComponentName(Component.displayName);
 
-    class ErrorBoundary extends React.Component {
-        constructor(props) {
+  class ErrorBoundary extends BaseClassComponent<any, InnerState> {
+    static displayName = `${componentName}${ERROR_BOUNDARY_SUFFIX}`;
+    static propTypes = Component.propTypes;
+    static defaultProps = Component.defaultProps;
+
+        constructor(props?: object) {
             super(props);
             this.state = { hasError: false };
         }
 
-        static getDerivedStateFromError(error) {
+        static getDerivedStateFromError(error?: BaseError) {
             // Update state so the next render will show the fallback UI.
             return { hasError: true };
         }
 
-        componentDidCatch(error, errorInfo) {
+        componentDidCatch(error: BaseError, errorInfo) {
             // You can also log the error to an error reporting service
             console.error(
                 `${ErrorBoundary.displayName}.componentDidCatch():`,
@@ -42,10 +50,6 @@ export default (Component) => {
             }
         }
     }
-
-    ErrorBoundary.displayName = `${componentName}${ERROR_BOUNDARY_SUFFIX}`;
-    ErrorBoundary.propTypes = Component.propTypes;
-    ErrorBoundary.defaultProps = Component.defaultProps;
 
     return ErrorBoundary;
 };
