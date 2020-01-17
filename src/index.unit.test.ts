@@ -11,7 +11,7 @@ import * as ReactRedux from 'react-redux';
 import * as moduleToTest from './index';
 
 describe("src/index", () => {
-    let clone: object;
+    let clone: { [index: string]: any };
 
     before(() => {
         clone = { ...moduleToTest };
