@@ -20,8 +20,8 @@
     "noUnusedLocals": true,
     "outDir": "./dist/",
     "paths": {
-      "chai-immutable": [ "src/@types/chai-immutable" ],
-      "redux-concatenate-reducers": [ "src/@types/redux-concatenate-reducers" ]
+      "chai-immutable": [ "./src/@types/chai-immutable" ],
+      "redux-concatenate-reducers": [ "./src/@types/redux-concatenate-reducers" ]
     },
     "sourceMap": true,
     "strict": true,

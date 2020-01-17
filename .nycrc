@@ -3,19 +3,25 @@
   "cache": false,
   "temp-dir": "./reports/nyc_output",
   "check-coverage": false,
+  "sourceMap": true,
+  "instrument": true,
   "require": [
-    "@babel/register"
+    "ts-node/register"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": [
     "dist/",
     "reports/",
-    "src/**/*.test.js",
-    "src/**/*.test.jsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
     "stryker.conf.js"
   ],
   "extension": [
-    ".js",
-    ".jsx"
+    ".ts",
+    ".tsx"
   ],
   "reporter": [
     "cobertura",
