@@ -6,19 +6,19 @@
  *  Taken from https://reactjs.org/docs/error-boundaries.html
  */
 
-import BaseClassComponent from './base-class-component';
+import React from 'react';
+
 import baseComponentName from './base-component-name';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
-import { BaseError } from './types';
 
 interface InnerState {
   hasError: boolean;
 }
 
-export default (Component: BaseClassComponent<any, any>): BaseClassComponent<any, any> => {
-    const componentName = baseComponentName(Component.displayName);
+export default (Component: React.ComponentType<any>): React.ComponentClass<any, any> => {
+    const componentName = baseComponentName(Component.displayName || 'Anonymous');
 
-  class ErrorBoundary extends BaseClassComponent<any, InnerState> {
+  class ErrorBoundary extends React.Component<any, InnerState> {
     static displayName = `${componentName}${ERROR_BOUNDARY_SUFFIX}`;
     static propTypes = Component.propTypes;
     static defaultProps = Component.defaultProps;
@@ -28,12 +28,12 @@ export default (Component: BaseClassComponent<any, any>): BaseClassComponent<any
             this.state = { hasError: false };
         }
 
-        static getDerivedStateFromError(error?: BaseError) {
+        static getDerivedStateFromError(error?: Error) {
             // Update state so the next render will show the fallback UI.
-            return { hasError: true };
+            return { hasError: Boolean(error) };
         }
 
-        componentDidCatch(error: BaseError, errorInfo) {
+        componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
             // You can also log the error to an error reporting service
             console.error(
                 `${ErrorBoundary.displayName}.componentDidCatch():`,

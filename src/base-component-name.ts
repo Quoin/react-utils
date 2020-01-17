@@ -2,8 +2,10 @@ import {
     ERROR_BOUNDARY_SUFFIX
 } from './constants';
 
-export default (componentName: string): string => {
-    let cleanedName = componentName || '';
+type IComponent = string | React.ComponentClass<any>;
+
+export default (componentName: IComponent): string => {
+    let cleanedName = (typeof componentName === 'string' ? componentName : componentName.displayName) || '';
 
     const indexOfErrorBoundarySuffix = cleanedName.indexOf(ERROR_BOUNDARY_SUFFIX);
     if ((indexOfErrorBoundarySuffix !== -1) && (cleanedName.length - ERROR_BOUNDARY_SUFFIX.length === indexOfErrorBoundarySuffix)) {
