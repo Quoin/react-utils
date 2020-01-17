@@ -108,6 +108,7 @@
     "redux-concatenate-reducers": "~1.0.0",
     "redux-logger": "~3.0.6",
     "rimraf": "~3.0.1",
+    "source-map-support": "^0.5.16",
     "stryker-cli": "^1.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.4"
@@ -139,6 +140,7 @@
   "mocha": {
     "require": [
       "ts-node/register",
+      "source-map-support/register",
       "./src/helpers.test.ts"
     ]
   },
