@@ -19,13 +19,13 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "outDir": "./dist/",
-    "paths": {
-      "chai-immutable": [ "./src/@types/chai-immutable" ],
-      "redux-concatenate-reducers": [ "./src/@types/redux-concatenate-reducers" ]
-    },
     "sourceMap": true,
     "strict": true,
     "target": "ES6",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ]
   },
   "include": [
     "./src"

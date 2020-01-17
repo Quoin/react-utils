@@ -32,7 +32,7 @@
     "prepack": "run-s clean tsc",
     "prepack2": "run-s check clean coverage coverage-report babel",
     "stryker": "stryker run",
-    "test": "TS_NODE_FILES=true mocha \"src/**/*.test.ts?(x)\""
+    "test": "TS_NODE_FILES=true mocha --exit \"src/**/*.test.ts?(x)\""
   },
   "repository": {
     "type": "git",
