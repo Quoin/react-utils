@@ -10,8 +10,8 @@ import * as ReactRedux from 'react-redux';
 
 import * as moduleToTest from './index';
 
-describe.only("src/index", () => {
-    let clone;
+describe("src/index", () => {
+    let clone: object;
 
     before(() => {
         clone = { ...moduleToTest };
