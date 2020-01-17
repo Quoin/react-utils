@@ -1,5 +1,5 @@
 {
-  "all": true,
+  "all": false,
   "cache": false,
   "temp-dir": "./reports/nyc_output",
   "check-coverage": false,
@@ -9,8 +9,8 @@
     "ts-node/register"
   ],
   "include": [
-    "**/*.ts",
-    "**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
   "exclude": [
     "dist/",
