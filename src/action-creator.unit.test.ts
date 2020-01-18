@@ -1,12 +1,8 @@
 import moduleToTest from './action-creator';
 
 describe("src/action-creator", () => {
-    it("should be a function", () => {
-        expect(moduleToTest).to.be.a('function');
-    });
-
-    it(`should throw "Missing type" when missing type`, () => {
-        expect(() => moduleToTest()).to.throw(Error, /^Missing type$/);
+    it("should be a function with 2 params", () => {
+        expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
     });
 
     it(`should return with type and undefined payload with no payload defined`, () => {
