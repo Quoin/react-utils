@@ -5,6 +5,7 @@
   "check-coverage": false,
   "sourceMap": true,
   "instrument": true,
+  "extends": "@istanbuljs/nyc-config-typescript",
   "require": [
     "ts-node/register"
   ],
