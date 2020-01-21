@@ -1,6 +1,8 @@
 import { fromJS } from 'immutable';
 
 import actionCreator from './action-creator';
+import { DEFAULT_STATE } from './constants';
+import { IAction, IReducer, IReducerDefinition, IState } from './types';
 
 import moduleToTest from './concatenate-reducers';
 
@@ -8,9 +10,9 @@ const FOO_TYPE = 'test-foo-type';
 
 const BASIC_TYPE = 'test-basic-reducer-type';
 const BASIC_ATTRIBUTE = 'test-basic-reducer-attribute';
-const BASIC_VALUE = 'test-basic-reducer-value';
+const BASIC_VALUE = fromJS({ value: 'test-basic-reducer-value' });
 
-const basicReducer = (state, action) => {
+const basicReducer = (state: IState = DEFAULT_STATE, action: IAction): IState => {
     switch (action.type) {
         case BASIC_TYPE:
             return state.set(BASIC_ATTRIBUTE, BASIC_VALUE);
@@ -22,11 +24,11 @@ const basicReducer = (state, action) => {
 
 const GUARDED_TYPE = 'test-guarded-reducer-type';
 const GUARDED_ATTRIBUTE = 'test-guarded-reducer-attribute';
-const GUARDED_VALUE = 'test-guarded-reducer-value';
+const GUARDED_VALUE = fromJS({ value: 'test-guarded-reducer-value' });
 
-const guardedDefinition = {
+const guardedDefinition: IReducerDefinition = {
     actions: [ GUARDED_TYPE ],
-    reducer: (state, action) => state.set(GUARDED_ATTRIBUTE, GUARDED_VALUE)
+    reducer: (state: IState = DEFAULT_STATE, _action: IAction): IState => state.set(GUARDED_ATTRIBUTE, GUARDED_VALUE)
 };
 
 describe(`src/concatenate-reducers`, () => {
@@ -40,7 +42,7 @@ describe(`src/concatenate-reducers`, () => {
     });
 
     describe(`single basic reducer`, () => {
-        let reducer;
+        let reducer: IReducer;
 
         beforeEach(() => {
             reducer = moduleToTest([ basicReducer ]);
@@ -60,7 +62,7 @@ describe(`src/concatenate-reducers`, () => {
     });
 
     describe(`guarded definition`, () => {
-        let reducer;
+        let reducer: IReducer;
 
         beforeEach(() => {
             reducer = moduleToTest([ guardedDefinition ]);
