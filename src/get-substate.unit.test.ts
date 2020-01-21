@@ -2,8 +2,9 @@ import { fromJS, Map } from 'immutable';
 
 import moduleToTest from './get-substate';
 import namespace from './namespace.test';
+import { IState } from './types';
 
-const EMPTY_STATE = Map();
+const EMPTY_STATE = (Map() as IState);
 const STATE = fromJS({
     [namespace()]: {
         foo: 'bar'
