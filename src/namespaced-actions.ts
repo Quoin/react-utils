@@ -1,13 +1,7 @@
 import { INamespace } from './types';
 
 export default (namespace: INamespace, baseKeys: string[]) => {
-    if (!namespace) {
-        throw new Error(`Missing namespace`);
-    } else if (typeof namespace !== 'function') {
-        throw new Error(`namespace is not a function`);
-    }
-
-    if (!baseKeys || !baseKeys.length) {
+    if (!baseKeys.length) {
         throw new Error(`Missing baseKeys`);
     }
 
