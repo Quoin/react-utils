@@ -92,6 +92,7 @@ describe("src/index", () => {
         'boundComponent',
         'concatenateReducers',
         'createStore',
+        'DEFAULT_STATE',
         'errorBoundary',
         'getSubstate',
         'getSubstateAttribute',
