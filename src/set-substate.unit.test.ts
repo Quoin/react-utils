@@ -1,10 +1,10 @@
 import { fromJS, Map } from 'immutable';
 
-import moduleToTest from './set-substate';
-
 import namespace from './namespace.test';
+import moduleToTest from './set-substate';
+import { IState } from './types';
 
-const EMPTY_STATE = Map();
+const EMPTY_STATE = (Map() as IState);
 
 describe(`src/set-substate`, () => {
     it(`is a function with 3 params`, () => {
@@ -12,9 +12,11 @@ describe(`src/set-substate`, () => {
     });
 
     it(`sets when empty state`, () => {
-        const value = moduleToTest(EMPTY_STATE, namespace, 'foobar');
+        const value = moduleToTest(EMPTY_STATE, namespace, fromJS({ key: 'foobar' }));
         expect(value).to.equal(fromJS({
-            [namespace()]: 'foobar'
+            [namespace()]: {
+                key: 'foobar'
+            }
         }));
     });
 
@@ -22,9 +24,11 @@ describe(`src/set-substate`, () => {
         const state = fromJS({
             [namespace()]: 'old value'
         });
-        const value = moduleToTest(state, namespace, 'new value');
+        const value = moduleToTest(state, namespace, fromJS({ key: 'new value' }));
         expect(value).to.equal(fromJS({
-            [namespace()]: 'new value'
+            [namespace()]: {
+                key: 'new value'
+            }
         }));
     });
 
@@ -32,10 +36,12 @@ describe(`src/set-substate`, () => {
         const state = fromJS({
             [`not-${namespace()}`]: 'other value'
         });
-        const value = moduleToTest(state, namespace, 'new value');
+        const value = moduleToTest(state, namespace, fromJS({ key: 'new value' }));
         expect(value).to.equal(fromJS({
             [`not-${namespace()}`]: 'other value',
-            [namespace()]: 'new value'
+            [namespace()]: {
+                key: 'new value'
+            }
         }));
     });
 });

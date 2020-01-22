@@ -8,8 +8,9 @@ import {
 } from './test-utils.test';
 
 import moduleToTest from './create-store';
+import { IStore } from './types';
 
-const isAStore = (store) => {
+const isAStore = (store: IStore) => {
     expect(store).to.have.property('dispatch');
     expect(store).to.have.property('getState');
     expect(store).to.have.property('replaceReducer');

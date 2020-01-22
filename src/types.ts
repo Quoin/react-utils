@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { Reducer } from 'redux';
+import { Reducer, Store } from 'redux';
 
 export type IActionType = string;
 
@@ -11,6 +11,8 @@ export interface IAction {
 export interface ISubstate extends Map<string, any> {}
 
 export type IState = Map<string, ISubstate>;
+
+export type IStore = Store<IState>;
 
 export type IReducer = Reducer<IState, IAction>;
 
