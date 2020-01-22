@@ -1,12 +1,16 @@
+import { fromJS } from 'immutable';
 
-export const TestComponent = (props) => `<div class="test">TestComponent content</div>`;
+import { DEFAULT_STATE } from './constants';
+import { IAction, IState } from './types';
+
+export const TestComponent = (_props: any) => `<div class="test">TestComponent content</div>`;
 TestComponent.displayName = `TestComponentName`;
 
 export const TEST_INIT_TYPE = 'THIS-IS-A-TEST-TYPE-FOR-TEST';
 export const TEST_INIT_ATTRIBUTE = 'THIS-IS-A-TEST-ATTRIBUTE';
-export const TEST_INIT_VALUE = 'THIS-IS-A-TEST-VALUE';
+export const TEST_INIT_VALUE = fromJS({ key: 'THIS-IS-A-TEST-VALUE' });
 
-export const TEST_REDUCER = (state, action) => {
+export const TEST_REDUCER = (state: IState = DEFAULT_STATE, action: IAction): IState => {
     if (action && action.type) {
         switch (action.type) {
             case TEST_INIT_TYPE:

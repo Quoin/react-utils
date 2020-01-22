@@ -14,6 +14,7 @@ declare global {
   namespace NodeJS {
     interface Global {
       expect: Chai.ExpectStatic;
+      window: any;
     }
   }
 
