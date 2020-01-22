@@ -2,7 +2,7 @@ import {
     ERROR_BOUNDARY_SUFFIX
 } from './constants';
 
-type IComponent = string | React.ComponentClass<any>;
+type IComponent = string | React.ComponentClass<any> | React.FunctionComponent<any>;
 
 export default (componentName?: IComponent): string => {
     let cleanedName = (typeof componentName === 'string' ? componentName : componentName ? componentName.displayName : '') || '';
