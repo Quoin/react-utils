@@ -10,7 +10,11 @@ describe("src/namespaced-actions", () => {
         expect(moduleToTest).to.be.a('function').and.have.lengthOf(2);
     });
 
-    it(`should return known object`, () => {
+    it(`throws when no baseKeys defined`, () => {
+        expect(() => moduleToTest(myNamespace, [])).to.throw(Error, /^Missing baseKeys$/);
+    });
+
+    it(`returns known object`, () => {
         const value = moduleToTest(myNamespace, [ 'FOO', 'BAR' ]);
         expect(value).to.deep.equal({
             FOO: 'QUOIN-REACT-UTILS.FOO',

@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import PropTypes from 'prop-types';
+import { FunctionComponent } from 'react';
 
 import moduleToTest from './bound-component';
 
@@ -9,18 +10,24 @@ describe(`src/bound-component`, () => {
     });
 
     describe(`BoundComponent`, () => {
-        const Component = (props) => <div>got foo:{props.foo}, some:{props.some}, existing:{props.existing}</div>;
+      interface Props {
+        existing: string;
+        foo: string;
+        some: string;
+      }
+
+      const Component: FunctionComponent<Props> = (props) => <div>got foo:{props.foo}, some:{props.some}, existing:{props.existing}</div>;
         Component.displayName = 'FooBar';
         Component.propTypes = {
             existing: PropTypes.string.isRequired,
             foo: PropTypes.string.isRequired,
             some: PropTypes.string.isRequired
         };
-        Component.defautProps = {
+        Component.defaultProps = {
             existing: 'not really'
         };
 
-        const getComponentProps = (props) => ({
+        const getComponentProps = (props: any): object => ({
             foo: 'bar',
             some: 'props',
             existing: props.existing
