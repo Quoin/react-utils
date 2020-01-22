@@ -19,7 +19,7 @@ export default (
     if (inDevelopment) {
         clonedMiddlewares.push(createLogger({
             collapsed: true,
-            stateTransformer: (state) => state.toJS()
+            stateTransformer: (state: IState) => state.toJS()
         }));
 
         if (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
