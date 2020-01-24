@@ -22,6 +22,7 @@
     "eslint:client-test": "eslint --fix --config=.eslintrc.client.test.json --ignore-pattern=helpers.test.js \"src/**/*.test.js?(x)\"",
     "jscpd": "jscpd src",
     "prepack": "npm run check && npm run clean && npm run coverage && npm run coverage-report && npm run babel",
+    "stryker": "stryker run",
     "test": "mocha \"src/**/*.test.js?(x)\""
   },
   "repository": {
@@ -44,6 +45,12 @@
     "@babel/preset-react": "~7.7.4",
     "@babel/register": "~7.7.4",
     "@quoin/eslint-config-quoin": "~0.3.3",
+    "@stryker-mutator/babel-transpiler": "^2.5.0",
+    "@stryker-mutator/core": "^2.5.0",
+    "@stryker-mutator/html-reporter": "^2.5.0",
+    "@stryker-mutator/javascript-mutator": "^2.5.0",
+    "@stryker-mutator/mocha-framework": "^2.5.0",
+    "@stryker-mutator/mocha-runner": "^2.5.0",
     "canvas": "~2.6.1",
     "chai": "~4.2.0",
     "chai-immutable": "~2.1.0",
@@ -74,7 +81,8 @@
     "redux": "~4.0.4",
     "redux-concatenate-reducers": "~1.0.0",
     "redux-logger": "~3.0.6",
-    "rimraf": "~3.0.0"
+    "rimraf": "~3.0.0",
+    "stryker-cli": "^1.0.0"
   },
   "peerDependencies": {
     "classnames": ">=2.2.6",
