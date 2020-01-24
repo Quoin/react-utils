@@ -10,7 +10,8 @@
     "dist/",
     "reports/",
     "src/**/*.test.js",
-    "src/**/*.test.jsx"
+    "src/**/*.test.jsx",
+    "stryker.conf.js"
   ],
   "extension": [
     ".js",
