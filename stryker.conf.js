@@ -8,12 +8,6 @@ module.exports = function(config) {
     testFramework: "mocha",
     reporters: ["progress", "clear-text", "html"],
     coverageAnalysis: "off",
-    transpilers: [
-        'babel'
-    ],
-    babel: {
-        optionsFile: '.babelrc'
-    },
     mochaOptions: {
         spec: ['src/**/*.test.js?(x)'],
         require: [

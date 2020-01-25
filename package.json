@@ -46,7 +46,6 @@
     "@babel/preset-react": "~7.7.4",
     "@babel/register": "~7.7.4",
     "@quoin/eslint-config-quoin": "~0.3.3",
-    "@stryker-mutator/babel-transpiler": "^2.5.0",
     "@stryker-mutator/core": "^2.5.0",
     "@stryker-mutator/html-reporter": "^2.5.0",
     "@stryker-mutator/javascript-mutator": "^2.5.0",
