@@ -1,8 +1,8 @@
 export { default as classnames } from 'classnames';
 export { default as PropTypes } from 'prop-types';
 export { default as React, Fragment, useEffect } from 'react';
-export { render } from 'react-dom';
-export { rendereToString } from 'react-dom/server';
+export { hydrate, render } from 'react-dom';
+export { renderToString } from 'react-dom/server';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
 export { batch, Provider, useDispatch, useSelector } from 'react-redux';
 
@@ -18,3 +18,4 @@ export { default as namespace } from './namespace';
 export { default as namespacedActions } from './namespaced-actions';
 export { default as setSubstate } from './set-substate';
 export { default as setSubstateAttribute } from './set-substate-attribute';
+export { default as ssrWithStore } from './ssr-with-store';

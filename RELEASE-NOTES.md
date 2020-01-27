@@ -1,5 +1,11 @@
 # Quoin's React utils library release notes
 
+## 0.0.8 - 2020-01-27
+
+- #2: Adding stryker mutator
+- Fixed typo for `renderToString()`.
+- Added `ssrWithStore()`.
+
 ## 0.0.7 - 2020-01-08
 
 - Exporting `React`.

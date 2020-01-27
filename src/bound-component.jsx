@@ -1,3 +1,5 @@
+import React from 'react';
+
 import baseComponentName from './base-component-name';
 import errorBoundary from './error-boundary';
 
