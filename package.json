@@ -10,6 +10,9 @@
   "engines": {
     "node": ">=12.13"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "scripts": {
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
