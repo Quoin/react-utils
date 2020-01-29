@@ -14,6 +14,7 @@ describe(`src/constants`, () => {
     [
         'ERROR_BOUNDARY_SUFFIX',
         'INIT_TYPE',
+        'PLACEHOLDER',
         'PRELOADED_STATE'
     ].forEach((property) => {
         it(`has non-empty string property '${property}'`, () => {

@@ -14,6 +14,7 @@ export { default as createStore } from './create-store';
 export { default as errorBoundary } from './error-boundary';
 export { default as getSubstate } from './get-substate';
 export { default as getSubstateAttribute } from './get-substate-attribute';
+export { default as hydrateWithStore } from './hydrate-with-store';
 export { default as namespace } from './namespace';
 export { default as namespacedActions } from './namespaced-actions';
 export { default as setSubstate } from './set-substate';

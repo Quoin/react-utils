@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { PRELOADED_STATE } from './constants';
+import { PLACEHOLDER, PRELOADED_STATE } from './constants';
 import errorBoundary from './error-boundary';
 
 const generateCss = (assets = []) => assets
@@ -25,9 +25,7 @@ const Component = (props) => {
                 {generateCss(props.page.assets)}
             </head>
             <body>
-                <div id="react-placeholder">
-                    <props.Component {...props.componentProps} />
-                </div>
+                <div id={PLACEHOLDER}><props.Component /></div>
                 <script dangerouslySetInnerHTML={{ __html: `window.${PRELOADED_STATE} = ${stateAsString};` }}></script>
                 {generateJs(props.page.assets)}
             </body>
@@ -41,8 +39,7 @@ Component.propTypes = {
         assets: PropTypes.arrayOf(PropTypes.string).isRequired
     }),
     state: PropTypes.object.isRequired,
-    Component: PropTypes.elementType,
-    componentProps: PropTypes.object
+    Component: PropTypes.elementType
 };
 
 export default errorBoundary(Component);

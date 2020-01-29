@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.0.9 - 2020-01-29
+
+- Added `hydrateWithStore()`.
+
 ## 0.0.8 - 2020-01-27
 
 - #2: Adding stryker mutator

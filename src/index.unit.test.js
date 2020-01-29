@@ -19,6 +19,7 @@ describe("src/index", () => {
         'getSubstateAttribute',
         'Fragment',
         'hydrate',
+        'hydrateWithStore',
         'ImmutablePropTypes',
         'INIT_TYPE',
         'namespace',
