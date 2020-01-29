@@ -7,6 +7,9 @@
     "email": "huuda.tran@quoininc.com",
     "url": "https://www.quoininc.com/staff/huu-da-tran/"
   },
+  "engines": {
+    "node": ">=12.13"
+  },
   "main": "dist/index.js",
   "scripts": {
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
