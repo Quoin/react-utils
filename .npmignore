@@ -3,7 +3,9 @@
 /.jscpd.json
 /.nycrc
 /.travis.yml
+/_config.yml
 /dist/**/*.test.js
 /quoin-react-utils-*.tgz
 /reports
 /src
+/stryker.conf.js
