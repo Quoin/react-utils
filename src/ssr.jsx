@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { PLACEHOLDER, PRELOADED_STATE } from './constants';
+import { PLACEHOLDER, PRELOADED_STATE, PRELOADED_STATE_PLACEHOLDER_ID } from './constants';
 import errorBoundary from './error-boundary';
 
 const generateCss = (assets = []) => assets
@@ -26,7 +26,7 @@ const Component = (props) => {
             </head>
             <body>
                 <div id={PLACEHOLDER}><props.Component /></div>
-                <script dangerouslySetInnerHTML={{ __html: `window.${PRELOADED_STATE} = ${stateAsString};` }}></script>
+                <script id={PRELOADED_STATE_PLACEHOLDER_ID} dangerouslySetInnerHTML={{ __html: `window.${PRELOADED_STATE} = ${stateAsString};` }}></script>
                 {generateJs(props.page.assets)}
             </body>
         </html>

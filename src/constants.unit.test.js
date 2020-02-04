@@ -15,7 +15,8 @@ describe(`src/constants`, () => {
         'ERROR_BOUNDARY_SUFFIX',
         'INIT_TYPE',
         'PLACEHOLDER',
-        'PRELOADED_STATE'
+        'PRELOADED_STATE',
+        'PRELOADED_STATE_PLACEHOLDER_ID'
     ].forEach((property) => {
         it(`has non-empty string property '${property}'`, () => {
             expect(clone).to.have.property(property);

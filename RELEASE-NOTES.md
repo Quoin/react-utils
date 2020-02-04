@@ -1,5 +1,10 @@
 # Quoin's React utils library release notes
 
+## 0.0.10 - 2020-02-04
+
+- Adding `react-router-dom`.
+- Removing initial state from page DOM.
+
 ## 0.0.9 - 2020-01-29
 
 - Added `hydrateWithStore()`.
