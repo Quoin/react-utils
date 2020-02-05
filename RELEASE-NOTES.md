@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.0.11 - 2020-02-05
+
+- Functionally working react-router
+
 ## 0.0.10 - 2020-02-04
 
 - Adding `react-router-dom`.
