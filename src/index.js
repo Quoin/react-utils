@@ -19,5 +19,6 @@ export { default as hydrateWithStore } from './hydrate-with-store';
 export { default as namespace } from './namespace';
 export { default as namespacedActions } from './namespaced-actions';
 export { default as setSubstate } from './set-substate';
+export { default as RoutesInfo } from './routes-info';
 export { default as setSubstateAttribute } from './set-substate-attribute';
 export { default as ssrWithStore } from './ssr-with-store';

@@ -110,5 +110,8 @@
       "@babel/register",
       "./src/helpers.test.js"
     ]
+  },
+  "dependencies": {
+    "url-template": "^2.0.8"
   }
 }
