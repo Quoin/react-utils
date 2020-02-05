@@ -30,8 +30,8 @@ describe(`src/routes-info/simple-clean`, () => {
             [ 1, "non-zero number" ],
             [ null, "null" ],
             [ undefined, "undefined" ],
-            [ [], "array" ],
-            [ {}, "object" ]
+            [[], "array" ],
+            [{}, "object" ]
         ].forEach(([ value, desc ]) => {
             it(`throws when value is ${desc}`, () => {
                 expect(() => moduleToTest(value)).to.throw();
