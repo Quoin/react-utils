@@ -35,6 +35,7 @@ describe("src/index", () => {
         'render',
         'renderToString',
         'Route',
+        'RoutesInfo',
         'setSubstate',
         'setSubstateAttribute',
         'ssrWithStore',
