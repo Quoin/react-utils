@@ -4,8 +4,34 @@ export { default as React, Fragment, useEffect } from 'react';
 export { hydrate, render } from 'react-dom';
 export { renderToString } from 'react-dom/server';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
-export { batch, Provider, useDispatch, useSelector } from 'react-redux';
-export { BrowserRouter, HashRouter, StaticRouter, Switch, Route, Link, NavLink, Redirect, useRouteMatch, useParams } from 'react-router-dom';
+
+export {
+    batch,
+    Provider,
+    useDispatch,
+    useSelector
+} from 'react-redux';
+
+export {
+    BrowserRouter,
+    HashRouter,
+    Link,
+    MemoryRouter,
+    NavLink,
+    Prompt,
+    Redirect,
+    Route,
+    Router,
+    StaticRouter,
+    Switch,
+    generatePath,
+    matchPath,
+    useHistory,
+    useLocation,
+    useParams,
+    useRouteMatch,
+    withRouter
+} from 'react-router-dom';
 
 export { default as actionCreator } from './action-creator';
 export { default as boundComponent } from './bound-component';
