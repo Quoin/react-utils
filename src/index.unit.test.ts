@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { default as React, Fragment, useEffect } from 'react';
+import { default as React } from 'react';
 import * as ReactModule from 'react';
 import ReactDOM from 'react-dom';
 import * as ReactDomServer from 'react-dom/server';
@@ -17,7 +17,7 @@ describe("src/index", () => {
         clone = { ...moduleToTest };
     });
 
-    const propertyIsFrom = (moduleName, importedModule, properties) => {
+    const propertyIsFrom = (moduleName: string, importedModule: {[index: string]: any}, properties: string | string[]) => {
         describe(moduleName, () => {
             if (Array.isArray(properties)) {
                 properties.forEach((property) => {

@@ -4,17 +4,23 @@ import React from 'react';
 import { PLACEHOLDER, PRELOADED_STATE, PRELOADED_STATE_PLACEHOLDER_ID } from './constants';
 import errorBoundary from './error-boundary';
 
-const generateCss = (assets = []) => assets
+const generateCss = (assets : string[] = []) => assets
     .filter((path) => path.endsWith('.css'))
     .map((path, index) => <link key={index} rel="stylesheet" href={path} />)
 ;
 
-const generateJs = (assets = []) => assets
+const generateJs = (assets: string[] = []) => assets
     .filter((path) => path.endsWith('.js'))
     .map((path, index) => <script key={index} type="text/javascript" src={path}></script>)
 ;
 
-const Component = (props) => {
+interface Props {
+  Component: any;
+  page: any;
+  state: any;
+};
+
+const Component: React.FunctionComponent<Props> = (props) => {
     const stateAsString = JSON.stringify(props.state).replace(/</g, '\\u003c');
 
     return (

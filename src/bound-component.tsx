@@ -5,7 +5,7 @@ import errorBoundary from './error-boundary';
 import { IGetComponentProps } from './types';
 
 export default (
-  Component: React.ComponentClass<any> | React.FunctionComponent<any>,
+  Component: React.ComponentType<any>,
   getComponentProps: IGetComponentProps,
   propTypes?: object,
   defaultProps?: object
