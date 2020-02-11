@@ -15,7 +15,9 @@ interface InnerState {
   hasError: boolean;
 }
 
-export default (Component: React.ComponentType<any>): React.ComponentClass<any, any> => {
+export default (
+    Component: new (props: any) => React.Component
+): React.ComponentType<any> => {
     const componentName = baseComponentName(Component.displayName || 'Anonymous');
 
   class ErrorBoundary extends React.Component<any, InnerState> {
