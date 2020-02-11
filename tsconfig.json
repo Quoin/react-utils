@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": [
@@ -16,7 +17,7 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noUnusedLocals": true,
     "outDir": "./dist/",
     "sourceMap": true,

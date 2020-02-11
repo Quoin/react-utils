@@ -29,8 +29,8 @@ describe(`src/error-boundary`, () => {
     });
 
     it(`detects component errors`, () => {
-        const Component = (props) => {
-            return '<div>Should fail</div>'.map(() => {});
+        const Component = (props: any) => {
+            throw new Error();
         };
         Component.displayName = TestComponent.displayName;
 

@@ -2,7 +2,7 @@ import * as chai from 'chai';
 import chaiImmutable = require('chai-immutable');
 import dirtyChai = require('dirty-chai');
 import * as Enzyme from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
 // import jsdom from 'jsdom';
 import 'mocha';
 // import React from 'react';
