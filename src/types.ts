@@ -5,7 +5,7 @@ export type IActionType = string;
 
 export interface IAction {
   type: IActionType;
-  payload?: object;
+  payload?: {[index: string]: any};
 }
 
 export type ISubstate = Map<string, any>;

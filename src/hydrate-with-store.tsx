@@ -18,7 +18,7 @@ export default (
 ) => {
     const placeholder = document.querySelector(`#${PLACEHOLDER}`);
     if (placeholder) {
-        const initialState: object = window[PRELOADED_STATE];
+        const initialState: object = (window as { [key: string]: any })[PRELOADED_STATE];
         const store = createStore(reducers, fromJS(initialState), middlewares, inDevelopment, projectInitType);
         const jsx = (
             <Provider store={store}>
@@ -29,7 +29,7 @@ export default (
         );
 
         hydrate(jsx, placeholder);
-        delete window[PRELOADED_STATE];
+        delete (window as { [key: string]: any })[PRELOADED_STATE];
 
         const scriptTag = document.querySelector(`#${PRELOADED_STATE_PLACEHOLDER_ID}`);
         if (scriptTag) {
