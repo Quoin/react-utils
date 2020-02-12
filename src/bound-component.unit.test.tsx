@@ -50,7 +50,7 @@ describe(`src/bound-component`, () => {
 
         it(`renders with value for 'existing'`, () => {
             const BoundComponent = moduleToTest(Component, getComponentProps);
-            const wrapper = mount(<BoundComponent existing={'Yes it does'} />);
+            const wrapper = mount(<BoundComponent {...getComponentProps({existing: "Yes it does"})} />);
             expect(wrapper.html()).to.equal('<div>got foo:bar, some:props, existing:Yes it does</div>');
         });
     });
