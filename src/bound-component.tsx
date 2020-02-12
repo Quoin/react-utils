@@ -9,7 +9,7 @@ export default (
   getComponentProps: IGetComponentProps,
   propTypes?: object,
   defaultProps?: object
-): React.ComponentClass => {
+): React.ComponentType => {
   const Container: React.FunctionComponent<any> = (props) => <Component {...getComponentProps(props)} />;
     Container.displayName = `${baseComponentName(Component)}Container`;
     Container.propTypes = propTypes ? propTypes : Component.propTypes;
