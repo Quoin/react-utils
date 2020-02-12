@@ -10,7 +10,7 @@ export interface IAction {
 
 export type ISubstate = Map<string, any>;
 
-export type IState = Map<string, ISubstate> | undefined;
+export type IState = Map<string, ISubstate>;
 
 export type IStore = Store<IState>;
 
