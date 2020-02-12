@@ -8,9 +8,9 @@ export interface IAction {
   payload?: object;
 }
 
-export interface ISubstate extends Map<string, any> {}
+export type ISubstate = Map<string, any>;
 
-export type IState = Map<string, ISubstate>;
+export type IState = Map<string, ISubstate> | undefined;
 
 export type IStore = Store<IState>;
 
