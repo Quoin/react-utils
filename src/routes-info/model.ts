@@ -1,3 +1,5 @@
+import express from 'express';
+
 import generateRoutes from './generate-routes';
 import { IRoute } from './types';
 
@@ -12,7 +14,7 @@ class RoutesInfo {
         this._routes = generateRoutes(definitions, []);
     }
 
-    register(app: any, controller: Function) {
+    register(app: express.Application, controller: express.RequestHandler) {
         this._routes.forEach((route) => {
             app.get(route.route, controller);
         });

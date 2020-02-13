@@ -3,7 +3,7 @@ import chaiImmutable = require('chai-immutable');
 import dirtyChai = require('dirty-chai');
 import * as Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-// import jsdom from 'jsdom';
+import jsdom from 'jsdom';
 import 'mocha';
 // import React from 'react';
 
@@ -15,15 +15,16 @@ declare global {
     interface Global {
       expect: Chai.ExpectStatic;
       window: any;
+      document: any;
     }
   }
 
   const expect: Chai.ExpectStatic;
 }
 
-// const doc = new jsdom.JSDOM('<!doctype html><html><body></body></html>');
-// global.window = doc.window;
-// global.document = window.document;
+const doc = new jsdom.JSDOM('<!doctype html><html><body></body></html>');
+global.window = doc.window;
+global.document = window.document;
 
 Enzyme.configure({ adapter: new Adapter() });
 

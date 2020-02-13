@@ -30,5 +30,12 @@
   },
   "include": [
     "./src"
-  ]
+  ],
+  "typedocOptions": {
+    "out": "docs",
+    "exclude": [
+      "src/**/*.test.ts",
+      "src/**/*.test.tsx"
+    ]
+  }
 }

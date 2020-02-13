@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { default as React } from 'react';
+import React from 'react';
 import * as ReactModule from 'react';
 import ReactDOM from 'react-dom';
 import * as ReactDomServer from 'react-dom/server';
@@ -100,12 +100,7 @@ describe("src/index", () => {
         'INIT_TYPE',
         'namespace',
         'namespacedActions',
-        'React',
         'RoutesInfo',
-        'PropTypes',
-        'Provider',
-        'render',
-        'renderToString',
         'setSubstate',
         'setSubstateAttribute',
         'ssrWithStore',

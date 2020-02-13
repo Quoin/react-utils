@@ -13,10 +13,6 @@ const TEST_VALUE = fromJS({ 'GUARD_ACTION_VALUE': 'GUARD_ACTION_VALUE' });
 const TEST_REDUCER: IReducer = (state: IState = DEFAULT_STATE, action: IAction): IState => state.set(TEST_ATTRIBUTE, TEST_VALUE);
 
 describe(`src/guard-action`, () => {
-    it(`is a function with 2 params`, () => {
-        expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
-    });
-
     it(`calls the reducer when defined in list`, () => {
         const reducer = moduleToTest(TEST_REDUCER, [ 'foo', TEST_ACTION, 'bar' ]);
         const state = reducer(fromJS({}), actionCreator(TEST_ACTION));
