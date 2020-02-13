@@ -18,10 +18,6 @@ const isAStore = (store: IStore) => {
 };
 
 describe(`src/create-store`, () => {
-    it(`is a function with 5 params`, () => {
-        expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(5);
-    });
-
     it(`returns a store`, () => {
         const store = moduleToTest(TEST_REDUCER, fromJS({}), [], false);
         isAStore(store);
