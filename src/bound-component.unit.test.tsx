@@ -2,6 +2,8 @@ import { mount } from 'enzyme';
 import PropTypes from 'prop-types';
 import { FunctionComponent } from 'react';
 
+const React = require('react');
+
 import moduleToTest from './bound-component';
 
 describe(`src/bound-component`, () => {
@@ -45,7 +47,7 @@ describe(`src/bound-component`, () => {
         it(`renders with default values`, () => {
             const BoundComponent = moduleToTest(Component, getComponentProps);
             const wrapper = mount(<BoundComponent />);
-            expect(wrapper.html()).to.equal('<div>got foo:bar, some:props, existing:</div>');
+            expect(wrapper.html()).to.equal('<div>got foo:bar, some:props, existing:not really</div>');
         });
 
         it(`renders with value for 'existing'`, () => {

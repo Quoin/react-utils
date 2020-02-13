@@ -1,4 +1,5 @@
 import { mount, shallow } from 'enzyme';
+import React from 'react';
 
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
 import { TestComponent } from './test-utils.test';
