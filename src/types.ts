@@ -20,15 +20,15 @@ export type IGetComponentProps = (props?: object) => object;
 
 export interface IReducerDefinition {
   actions: IActionType[];
-  reducer: IReducer
+  reducer: IReducer;
 }
 
 export type INamespace = (path?: string) => string;
 
 export class BaseError extends Error {
-  constructor(message?: string) {
-    super(message);
-    Object.setPrototypeOf(this, new.target.prototype);
-    this.name = `BaseError`;
-  }
+    constructor(message?: string) {
+        super(message);
+        Object.setPrototypeOf(this, new.target.prototype);
+        this.name = `BaseError`;
+    }
 }

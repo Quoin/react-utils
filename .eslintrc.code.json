@@ -2,24 +2,20 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
+    "exmaFeatures": {
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "@typescript-eslint"
   ],
   "extends": [
-    "@quoin/eslint-config-quoin/client",
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "@quoin/eslint-config-quoin",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
-  "globals": {
-    "React": true
-  },
   "settings": {
     "react": {
       "version": "detect"

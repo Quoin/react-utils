@@ -5,9 +5,9 @@ import { IRoute, IRouteDefinition } from './types';
 import urlTemplatePath from './url-template-path';
 
 const generateRoutes = (
-    definitions: IRouteDefinition[],
-    routes: IRoute[],
-    parentPath = '/'
+        definitions: IRouteDefinition[],
+        routes: IRoute[],
+        parentPath = '/'
 ): IRoute[] => definitions.reduce(
     (routes: IRoute[], definition: IRouteDefinition) => {
         if (!definition.name) {

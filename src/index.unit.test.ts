@@ -103,7 +103,7 @@ describe("src/index", () => {
         'RoutesInfo',
         'setSubstate',
         'setSubstateAttribute',
-        'ssrWithStore',
+        'ssrWithStore'
     ].forEach((property) => {
         it(`should have property '${property}'`, () => {
             expect(clone, `Property ${property}`).to.have.property(property);
