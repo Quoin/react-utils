@@ -6,11 +6,11 @@ import { INIT_TYPE } from './constants';
 import { IActionType, IReducer, IState, IStore } from './types';
 
 export default (
-    reducers: IReducer,
-    initialState: IState = Map(),
-    middlewares: Middleware<any, any, any>[],
-    inDevelopment: boolean,
-    projectInitType?: IActionType
+        reducers: IReducer,
+        initialState: IState = Map(),
+        middlewares: Middleware<any, any, any>[],
+        inDevelopment: boolean,
+        projectInitType?: IActionType
 ): IStore => {
     let composeEnhancers = compose;
 

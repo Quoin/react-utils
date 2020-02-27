@@ -4,12 +4,12 @@ import actionCreator from './action-creator';
 import { IAction, IState, IReducer } from './types';
 
 import moduleToTest from './guard-action';
-import { DEFAULT_STATE } from './constants'
+import { DEFAULT_STATE } from './constants';
 
 const INITIAL_STATE = fromJS({ some: 'thing' });
 const TEST_ACTION = `GUARD_ACTION_TYPE`;
 const TEST_ATTRIBUTE = `GUARD_ACTION_ATTRIBUTE`;
-const TEST_VALUE = fromJS({ 'GUARD_ACTION_VALUE': 'GUARD_ACTION_VALUE' });
+const TEST_VALUE = fromJS({ GUARD_ACTION_VALUE: 'GUARD_ACTION_VALUE' });
 
 const TEST_REDUCER: IReducer = (state: IState = DEFAULT_STATE, action: IAction): IState => state.set(TEST_ATTRIBUTE, TEST_VALUE);
 
@@ -43,8 +43,8 @@ describe(`src/guard-action`, () => {
 
         const state = reducer(INITIAL_STATE, actionCreator(TEST_ACTION));
         expect(state).to.equal(fromJS({
-          ...INITIAL_STATE.toJS(),
-          [TEST_ATTRIBUTE]: TEST_VALUE
+            ...INITIAL_STATE.toJS(),
+            [TEST_ATTRIBUTE]: TEST_VALUE
         }));
     });
 });

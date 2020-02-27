@@ -4,7 +4,7 @@ import React from 'react';
 import { PLACEHOLDER, PRELOADED_STATE, PRELOADED_STATE_PLACEHOLDER_ID } from './constants';
 import errorBoundary from './error-boundary';
 
-const generateCss = (assets : string[] = []) => assets
+const generateCss = (assets: string[] = []) => assets
     .filter((path) => path.endsWith('.css'))
     .map((path, index) => <link key={index} rel="stylesheet" href={path} />)
 ;

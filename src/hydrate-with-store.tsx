@@ -10,11 +10,11 @@ import createStore from './create-store';
 import { IReducer } from './types';
 
 export default (
-    Component: React.ComponentType,
-    reducers: IReducer,
-    middlewares: Middleware<any, any, any>[],
-    inDevelopment: boolean,
-    projectInitType?: string
+        Component: React.ComponentType,
+        reducers: IReducer,
+        middlewares: Middleware<any, any, any>[],
+        inDevelopment: boolean,
+        projectInitType?: string
 ) => {
     const placeholder = document.querySelector(`#${PLACEHOLDER}`);
     if (placeholder) {

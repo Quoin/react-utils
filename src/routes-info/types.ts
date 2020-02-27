@@ -8,5 +8,5 @@ export interface IRoute {
 export interface IRouteDefinition {
     name: string;
     path: string;
-    routes?: IRouteDefinition[]
+    routes?: IRouteDefinition[];
 }
