@@ -30,7 +30,7 @@ describe(`src/error-boundary`, () => {
     });
 
     it(`detects component errors`, () => {
-        const Component = (props: any) => {
+        const Component = (props: any): React.ComponentType => {
             throw new Error();
         };
         Component.displayName = TestComponent.displayName;
