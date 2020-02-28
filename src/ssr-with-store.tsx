@@ -6,7 +6,7 @@ import { StaticRouter } from 'react-router-dom';
 import Ssr from './ssr';
 import { IStore } from './types';
 
-export default (Component: React.ComponentType, store: IStore, page: object, url: string) => {
+export default (Component: React.ComponentType, store: IStore, page: object, url: string): React.ReactNode => {
     const myContext = {};
 
     const jsx = (

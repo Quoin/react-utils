@@ -15,7 +15,7 @@ export default (
         middlewares: Middleware<any, any, any>[],
         inDevelopment: boolean,
         projectInitType?: string
-) => {
+): void => {
     const placeholder = document.querySelector(`#${PLACEHOLDER}`);
     if (placeholder) {
         const initialState: object = (window as { [key: string]: any })[PRELOADED_STATE];

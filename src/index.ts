@@ -1,10 +1,12 @@
 export { default as classnames } from 'classnames';
-export const PropTypes = require('prop-types');
+import PropTypes = require('prop-types');
 export { Fragment, useEffect } from 'react';
-export const React = require('react');
+import React = require('react');
 export { hydrate, render } from 'react-dom';
 export { renderToString } from 'react-dom/server';
-export const ImmutablePropTypes = require('react-immutable-proptypes');
+import ImmutablePropTypes = require('react-immutable-proptypes');
+
+export { PropTypes, React, ImmutablePropTypes };
 
 export {
     batch,

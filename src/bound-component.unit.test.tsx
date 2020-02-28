@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 
 import moduleToTest from './bound-component';
 
-const React = require('react');
+import React = require('react');
 
 describe(`src/bound-component`, () => {
     it(`exports a function with 4 params`, () => {
