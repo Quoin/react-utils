@@ -1,7 +1,7 @@
 {
   "absolute": false,
   "formatsExts": {
-    "javascript": "js,jsx",
+    "javascript": "js,jsx,ts,tsx",
     "css": "less,css",
     "markdown": "md"
   },
