@@ -1,6 +1,6 @@
 import { INamespace } from './types';
 
-export default (namespace: INamespace, baseKeys: string[]) => {
+export default (namespace: INamespace, baseKeys: string[]): object => {
     if (!baseKeys.length) {
         throw new Error(`Missing baseKeys`);
     }

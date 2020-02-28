@@ -17,7 +17,7 @@ describe("src/index", () => {
         clone = { ...moduleToTest };
     });
 
-    const propertyIsFrom = (moduleName: string, importedModule: {[index: string]: any}, properties: string | string[]) => {
+    const propertyIsFrom = (moduleName: string, importedModule: {[index: string]: any}, properties: string | string[]): void => {
         describe(moduleName, () => {
             if (Array.isArray(properties)) {
                 properties.forEach((property) => {

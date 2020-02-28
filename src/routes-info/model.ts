@@ -10,17 +10,17 @@ class RoutesInfo {
       this._routes = [];
   }
 
-  configure(definitions: IRoute[]) {
+  configure(definitions: IRoute[]): void {
       this._routes = generateRoutes(definitions, []);
   }
 
-  register(app: express.Application, controller: express.RequestHandler) {
+  register(app: express.Application, controller: express.RequestHandler): void {
       this._routes.forEach((route) => {
           app.get(route.route, controller);
       });
   }
 
-  to(name: string, params: { [index: string]: any }) {
+  to(name: string, params: { [index: string]: any }): string {
       const foundRoute = this._routes.find((route) => route.name === name);
       if (foundRoute) {
           return foundRoute.template.expand(params);
@@ -29,7 +29,7 @@ class RoutesInfo {
       }
   }
 
-  path(name: string) {
+  path(name: string): string {
       const foundRoute = this._routes.find((route) => route.name === name);
       return foundRoute ? foundRoute.route : '';
   }

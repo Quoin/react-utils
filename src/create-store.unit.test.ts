@@ -10,7 +10,7 @@ import {
 import moduleToTest from './create-store';
 import { IStore } from './types';
 
-const isAStore = (store: IStore) => {
+const isAStore = (store: IStore): void => {
     expect(store).to.have.property('dispatch');
     expect(store).to.have.property('getState');
     expect(store).to.have.property('replaceReducer');
