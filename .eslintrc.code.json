@@ -2,7 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "exmaFeatures": {
+    "ecmaFeatures": {
       "jsx": true
     },
     "project": "./tsconfig.json"
@@ -12,6 +12,7 @@
   ],
   "extends": [
     "@quoin/eslint-config-quoin",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
