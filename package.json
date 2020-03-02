@@ -1,6 +1,6 @@
 {
   "name": "@quoin/react-utils",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "Utility functions for React",
   "author": {
     "name": "Hữu Ðà Trần",
@@ -11,7 +11,8 @@
     "node": ">=12.13"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "typescript"
   },
   "main": "dist/index.js",
   "scripts": {
