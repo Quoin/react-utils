@@ -4,7 +4,7 @@ import React from 'react';
 import { DEFAULT_STATE } from './constants';
 import { IAction, IState } from './types';
 
-export const TestComponent: React.ComponentType = () => (<div className="test">TestComponent content</div>);
+export const TestComponent: React.FC<any> = (props): React.ReactElement => (<div className="test">TestComponent content</div>);
 TestComponent.displayName = `TestComponentName`;
 
 export const TEST_INIT_TYPE = 'THIS-IS-A-TEST-TYPE-FOR-TEST';

@@ -3,7 +3,7 @@ import { Reducer, Store } from 'redux';
 
 export type IActionType = string;
 
-export interface IAction {
+export type IAction = {
   type: IActionType;
   payload?: {[index: string]: any};
 }
@@ -18,7 +18,7 @@ export type IReducer = Reducer<IState, IAction>;
 
 export type IGetComponentProps = (props?: object) => object;
 
-export interface IReducerDefinition {
+export type IReducerDefinition = {
   actions: IActionType[];
   reducer: IReducer;
 }

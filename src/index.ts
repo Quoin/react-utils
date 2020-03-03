@@ -51,4 +51,4 @@ export { default as setSubstate } from './set-substate';
 export { default as RoutesInfo, IRoute } from './routes-info';
 export { default as setSubstateAttribute } from './set-substate-attribute';
 export { default as ssrWithStore } from './ssr-with-store';
-export { IAction, IActionType, IReducerDefinition, IState } from './types';
+export { IAction, IActionType, INamespace, IReducerDefinition, IState } from './types';
