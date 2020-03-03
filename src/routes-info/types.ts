@@ -1,11 +1,11 @@
-export interface IRoute {
+export type IRoute = {
     name: string;
     route: string;
     path: string;
     template: any;
 }
 
-export interface IRouteDefinition {
+export type IRouteDefinition = {
     name: string;
     path: string;
     routes?: IRouteDefinition[];

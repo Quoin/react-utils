@@ -44,7 +44,6 @@ describe(`src/routes-info/generate-routes`, () => {
 
         const routes = moduleToTest(definitions, []);
         expect(routes).to.be.an('array').and.to.have.lengthOf(1);
-        console.log(`routes=`, routes);
 
         const route = routes[0];
 
