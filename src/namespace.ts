@@ -1,5 +1,5 @@
-export interface INamespace {
-  (s?: string): string;
-}
+import { INamespace } from './types';
 
-export default (key: string): string => key.replace(/@/g, '').replace(/[/_]/g, '-').toUpperCase();
+const namespace: INamespace = (key?: string): string => (key || '').replace(/@/g, '').replace(/[/_]/g, '-').toUpperCase();
+
+export default namespace;
