@@ -1,6 +1,6 @@
 {
   "name": "@quoin/react-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility functions for React",
   "author": {
     "name": "Hữu Ðà Trần",
@@ -32,8 +32,7 @@
     "jscpd": "jscpd src",
     "pretsc": "rimraf dist",
     "tsc": "tsc",
-    "prepack": "run-s clean tsc",
-    "prepack2": "run-s check clean coverage coverage-report babel",
+    "prepack": "run-s check clean coverage coverage-report tsc",
     "stryker": "stryker run",
     "test": "TS_NODE_FILES=true mocha --exit \"src/**/*.test.ts?(x)\""
   },
