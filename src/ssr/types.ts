@@ -37,6 +37,6 @@ export type AssetType = LinkType | ScriptType;
 
 export type PageType = {
     title: string;
-    meta?: MetaType[];
-    assets?: AssetType[];
+    meta: MetaType[];
+    assets: AssetType[];
 };
