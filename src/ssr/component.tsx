@@ -38,9 +38,13 @@ const Component: React.FunctionComponent<Props> = (props) => {
 Component.propTypes = {
     page: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        meta: PropTypes.arrayOf(PropTypes.object),
+        meta: PropTypes.arrayOf(PropTypes.exact({
+            attribute: PropTypes.string.isRequired,
+            value: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired
+        })).isRequired,
         assets: PropTypes.arrayOf(PropTypes.object).isRequired
-    }),
+    }).isRequired,
     state: PropTypes.object.isRequired,
     Component: PropTypes.elementType
 };

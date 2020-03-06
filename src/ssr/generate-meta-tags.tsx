@@ -3,8 +3,8 @@ import React from 'react';
 import { MetaType } from './types';
 
 export default (elements: readonly MetaType[] = []): React.ReactNode[] => {
-    const workElements : MetaType[] = [ ...elements ];
-    const found : boolean = Boolean(workElements.find((element: MetaType) => element.value === "viewport"));
+    const workElements: MetaType[] = [ ...elements ];
+    const found = Boolean(workElements.find((element: MetaType) => element.value === "viewport"));
     if (!found) {
         workElements.push({
             attribute: 'name',
@@ -19,6 +19,6 @@ export default (elements: readonly MetaType[] = []): React.ReactNode[] => {
             content: element.content
         };
 
-        return (<meta {...props} />);
+        return (<meta key={index} {...props} />);
     });
 };
