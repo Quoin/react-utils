@@ -17,9 +17,9 @@ export type LinkType = {
 
 export type InlineScriptType = {
     type: AssetTypes.SCRIPT;
-    async: never;
+    async?: never;
     inline?: true;
-    src: never;
+    src?: never;
     content: string;
 };
 
@@ -28,7 +28,7 @@ export type ExternalScriptType = {
     async?: boolean;
     inline?: false;
     src: string;
-    content: never;
+    content?: never;
 };
 
 export type ScriptType = InlineScriptType | ExternalScriptType;
