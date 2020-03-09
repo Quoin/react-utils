@@ -103,6 +103,7 @@ describe("src/index", () => {
         'RoutesInfo',
         'setSubstate',
         'setSubstateAttribute',
+        'SsrAssetTypes',
         'ssrWithStore'
     ].forEach((property) => {
         it(`should have property '${property}'`, () => {

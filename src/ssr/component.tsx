@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import React from 'react';
 
 import { PLACEHOLDER, PRELOADED_STATE, PRELOADED_STATE_PLACEHOLDER_ID } from './../constants';
@@ -34,19 +33,5 @@ const Component: React.FunctionComponent<Props> = (props) => {
         </html>
     );
 };
-
-// Component.propTypes = {
-//     page: PropTypes.shape({
-//         title: PropTypes.string.isRequired,
-//         meta: PropTypes.arrayOf(PropTypes.exact({
-//             attribute: PropTypes.string.isRequired,
-//             value: PropTypes.string.isRequired,
-//             content: PropTypes.string.isRequired
-//         })).isRequired,
-//         assets: PropTypes.arrayOf(PropTypes.object).isRequired
-//     }).isRequired,
-//     state: PropTypes.object.isRequired,
-//     Component: PropTypes.elementType
-// };
 
 export default errorBoundary(Component);
