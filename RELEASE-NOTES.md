@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.1.3 - 2020-03-10
+
+- #14: store returned when hydrate allowing further processing.
+
 ## 0.1.2 - 2020-03-09
 
 - #11: Extend SSR to handle meta, link and script tags.

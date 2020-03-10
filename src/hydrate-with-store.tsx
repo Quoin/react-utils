@@ -7,7 +7,7 @@ import { Middleware } from 'redux';
 
 import { PLACEHOLDER, PRELOADED_STATE, PRELOADED_STATE_PLACEHOLDER_ID } from './constants';
 import createStore from './create-store';
-import { IReducer } from './types';
+import { IReducer, IStore } from './types';
 
 export default (
         Component: React.ComponentType,
@@ -15,7 +15,7 @@ export default (
         middlewares: Middleware<any, any, any>[],
         inDevelopment: boolean,
         projectInitType?: string
-): void => {
+): IStore => {
     const placeholder = document.querySelector(`#${PLACEHOLDER}`);
     if (placeholder) {
         const initialState: object = (window as { [key: string]: any })[PRELOADED_STATE];
@@ -35,7 +35,9 @@ export default (
         if (scriptTag) {
             scriptTag.remove();
         }
+
+        return store;
     } else {
-        console.error(`Cannot find placeholder '#${PLACEHOLDER}'.`);
+        throw new Error(`Cannot find placeholder '#${PLACEHOLDER}'.`);
     }
 };
