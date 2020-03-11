@@ -8,6 +8,8 @@
 Utility library to use React.
 
 
-## WIP
+# Usage
 
-This documentation is in progress.
+- See [How to create a component](component.md)
+- See [How to make SSR app](ssr.md)
+- See [How to configure React Router](routes-info.md)

@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 0.1.4 - 2020-03-11
+
+- Fixed return type for `ssrWithStore()` and added better documentation.
+
 ## 0.1.3 - 2020-03-10
 
 - #14: store returned when hydrate allowing further processing.

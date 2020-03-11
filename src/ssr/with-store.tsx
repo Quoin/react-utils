@@ -8,7 +8,7 @@ import { IStore } from './../types';
 import Ssr from './component';
 import { PageType } from './types';
 
-export default (Component: React.ComponentType, store: IStore, page: PageType, url: string): React.ReactNode => {
+export default (Component: React.ComponentType, store: IStore, page: PageType, url: string): string => {
     const myContext = {};
 
     const jsx = (
