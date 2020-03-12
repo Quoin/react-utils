@@ -8,11 +8,15 @@ module.exports = function(config) {
         testFramework: "mocha",
         reporters: ["progress", "clear-text", "html"],
         coverageAnalysis: "off",
+        tsconfigFile: 'tsconfig.json',
+        transpilers: [
+            'typescript'
+        ],
         tempDirName: "reports/stryker-tmp",
         mochaOptions: {
             spec: ['src/**/*.test.ts?(x)'],
             require: [
-                '@babel/register',
+                'ts-node/register',
                 "source-map-support/register",
                 './src/helpers.test.ts'
             ]
