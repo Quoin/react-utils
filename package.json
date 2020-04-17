@@ -1,6 +1,6 @@
 {
   "name": "@quoin/react-utils",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "Utility functions for React",
   "author": {
     "name": "Hữu Ðà Trần",
@@ -16,8 +16,10 @@
   "main": "dist/index.js",
   "scripts": {
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
+    "prebuild": "rimraf dist",
+    "build": "babel",
     "check": "run-s eslint jscpd",
-    "clean": "rimraf quoin-react-utils-*.tgz",
+    "clean": "rimraf dist quoin-react-utils-*.tgz",
     "precoverage": "rimraf reports/nyc_output reports/coverage",
     "coveralls": "cat reports/coverage/lcov.info | coveralls",
     "coverage": "nyc --report-dir=reports/coverage npm test",
@@ -26,14 +28,12 @@
     "predocs": "rimraf docs",
     "docs": "typedoc src",
     "eslint": "run-s eslint:code eslint:test",
-    "eslint:code": "eslint --fix --config=.eslintrc.code.json \"src/**/*.ts?(x)\"",
-    "eslint:test": "eslint --fix --config=.eslintrc.test.json --ignore-pattern=helpers.test.ts \"src/**/*.test.ts?(x)\"",
+    "eslint:code": "eslint --fix --config=.eslintrc.code.json \"src/**/*.js?(x)\"",
+    "eslint:test": "eslint --fix --config=.eslintrc.test.json --ignore-pattern=helpers.test.js \"src/**/*.test.js?(x)\"",
     "jscpd": "jscpd src",
-    "pretsc": "rimraf dist",
-    "tsc": "tsc",
-    "prepack": "run-s check clean coverage coverage-report tsc",
+    "prepack": "run-s check clean coverage coverage-report build",
     "stryker": "stryker run",
-    "test": "TS_NODE_FILES=true mocha --exit \"src/**/*.test.ts?(x)\""
+    "test": "mocha --exit \"src/**/*.test.js?(x)\""
   },
   "repository": {
     "type": "git",
@@ -58,31 +58,11 @@
     "@babel/preset-env": "~7.8.7",
     "@babel/preset-react": "~7.8.3",
     "@babel/register": "~7.8.6",
-    "@istanbuljs/nyc-config-typescript": "~1.0.1",
     "@quoin/eslint-config-quoin": "~0.3.3",
     "@stryker-mutator/core": "~3.0.1",
     "@stryker-mutator/javascript-mutator": "~3.0.1",
     "@stryker-mutator/mocha-framework": "~3.0.1",
     "@stryker-mutator/mocha-runner": "~3.0.1",
-    "@stryker-mutator/typescript": "~3.0.1",
-    "@types/chai": "~4.2.10",
-    "@types/classnames": "~2.2.10",
-    "@types/dirty-chai": "~2.0.2",
-    "@types/enzyme": "~3.10.4",
-    "@types/enzyme-adapter-react-16": "~1.0.5",
-    "@types/express": "~4.17.3",
-    "@types/jsdom": "~16.1.0",
-    "@types/mocha": "~7.0.2",
-    "@types/prop-types": "~15.7.3",
-    "@types/react": "~16.9.23",
-    "@types/react-dom": "~16.9.4",
-    "@types/react-immutable-proptypes": "~2.1.0",
-    "@types/react-redux": "~7.1.5",
-    "@types/react-router-dom": "~5.1.3",
-    "@types/redux-logger": "~3.0.7",
-    "@types/url-template": "~2.0.28",
-    "@typescript-eslint/eslint-plugin": "~2.23.0",
-    "@typescript-eslint/parser": "~2.23.0",
     "canvas": "~2.6.1",
     "chai": "~4.2.0",
     "chai-immutable": "~2.1.0",
@@ -118,19 +98,9 @@
     "redux-logger": "~3.0.6",
     "rimraf": "~3.0.2",
     "source-map-support": "~0.5.16",
-    "stryker-cli": "~1.0.0",
-    "ts-node": "~8.6.2",
-    "typedoc": "~0.16.11",
-    "typescript": "~3.8.3"
+    "stryker-cli": "~1.0.0"
   },
   "peerDependencies": {
-    "@types/classnames": "^2.2.10",
-    "@types/express": "^4.17.3",
-    "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-immutable-proptypes": "^2.1.0",
-    "@types/react-redux": "^7.1.5",
     "classnames": ">=2.2.6",
     "express": ">=4.17.1",
     "immutable": ">=3.8.2",
@@ -149,12 +119,11 @@
     "!dist/**/*.test.*",
     "*.md"
   ],
-  "types": "./dist/index.d.ts",
   "mocha": {
     "require": [
-      "ts-node/register",
+      "@babel/register",
       "source-map-support/register",
-      "./src/helpers.test.ts"
+      "./src/helpers.test.js"
     ]
   },
   "dependencies": {

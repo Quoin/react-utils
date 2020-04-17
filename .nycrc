@@ -7,22 +7,22 @@
   "instrument": true,
   "extends": "@istanbuljs/nyc-config-typescript",
   "require": [
-    "ts-node/register"
+    "@babel/register"
   ],
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.js",
+    "src/**/*.jsx"
   ],
   "exclude": [
     "dist/",
     "reports/",
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx",
+    "src/**/*.test.js",
+    "src/**/*.test.jsx",
     "stryker.conf.js"
   ],
   "extension": [
-    ".ts",
-    ".tsx"
+    ".js",
+    ".jsx"
   ],
   "reporter": [
     "cobertura",
