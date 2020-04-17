@@ -1,0 +1,39 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "@quoin/eslint-config-quoin",
+    "plugin:react/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/prop-types": 2,
+    "react/react-in-jsx-scope": 0
+  },
+  "overrides": [{
+    "files": ["*.unit.test.js?(x)"],
+    "extends": [
+      "@quoin/eslint-config-quoin/client-test",
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "env": {
+      "mocha": true
+    },
+    "globals": {
+      "expect": "readonly"
+    },
+    "rules": {
+      "react/prop-types": 0,
+      "react/react-in-jsx-scope": 0
+    }
+  }]
+}
