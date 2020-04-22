@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.0 - 2020-04-22
+
+- #16: Converted back to JS-only.
+
 ## 0.1.4 - 2020-03-11
 
 - Fixed return type for `ssrWithStore()` and added better documentation.

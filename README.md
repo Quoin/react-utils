@@ -8,7 +8,22 @@
 Utility library to use React.
 
 
-# Usage
+## Warning
+
+The library expects `React` to be global, because it usually comes from an
+external lib and not bundled with `webpack`, so the easiest when using on the
+server-side is to declare it global inside your start script:
+
+```
+# server.js
+
+import React from 'react';
+
+global.React = React;
+```
+
+
+## Usage
 
 - See [How to create a component](component.md)
 - See [How to make SSR app](ssr.md)
