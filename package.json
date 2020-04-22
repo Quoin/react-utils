@@ -37,8 +37,7 @@
     "url": "git+https://github.com/Quoin/react-utils.git"
   },
   "publicConfig": {
-    "access": "public",
-    "tag": "typescript"
+    "access": "public"
   },
   "keywords": [
     "Quoin",
