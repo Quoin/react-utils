@@ -9,11 +9,11 @@ module.exports = function(config) {
         coverageAnalysis: "off",
         tempDirName: "reports/stryker-tmp",
         mochaOptions: {
-            spec: ['src/**/*.test.ts?(x)'],
+            spec: ['src/**/*.unit.test.js?(x)'],
             require: [
                 '@babel/register',
                 "source-map-support/register",
-                './src/helpers.test.js'
+                './src/setup.test.js'
             ]
         }
     });

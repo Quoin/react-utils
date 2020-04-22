@@ -16,22 +16,21 @@
   "main": "dist/index.js",
   "scripts": {
     "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
-    "prebuild": "rimraf dist",
-    "build": "babel",
+    "prebuild": "run-s clean",
+    "build": "run-s babel",
     "check": "run-s eslint jscpd",
+    "check:all": "run-s check coverage",
     "clean": "rimraf dist quoin-react-utils-*.tgz",
     "precoverage": "rimraf reports/nyc_output reports/coverage",
     "coveralls": "cat reports/coverage/lcov.info | coveralls",
     "coverage": "nyc --report-dir=reports/coverage npm test",
-    "postcoverage2": "run-s stryker",
+    "postcoverage": "run-s stryker",
     "coverage-report": "nyc report --reporter=text --reporter=text-summary",
-    "predocs": "rimraf docs",
-    "docs": "typedoc src",
     "eslint": "eslint --fix --ext=.js,.jsx src",
     "jscpd": "jscpd src",
-    "prepack": "run-s check clean coverage coverage-report build",
+    "prepack": "run-s check:all coverage-report build",
     "stryker": "stryker run",
-    "test": "mocha --exit \"src/**/*.test.js?(x)\""
+    "test": "mocha --exit \"src/**/*.unit.test.js?(x)\""
   },
   "repository": {
     "type": "git",
@@ -121,7 +120,7 @@
     "require": [
       "@babel/register",
       "source-map-support/register",
-      "./src/helpers.test.js"
+      "./src/setup.test.js"
     ]
   },
   "dependencies": {
