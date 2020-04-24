@@ -4,8 +4,8 @@ Routes info is basically used to have variables in `<Link>` components.
 
 With the following definition:
 
-```typescript
-export const ROUTES_INFO: IRoute[] = [{
+```javascript
+export const ROUTES_INFO = [{
   name: 'home',
   path: '/',
   template: App,
@@ -13,9 +13,9 @@ export const ROUTES_INFO: IRoute[] = [{
 }];
 ```
 
-In your `component.tsx` (or any code), you will be able to use:
+In your `component.jsx` (or any code), you will be able to use:
 
-```typescript
+```javascript
 import {
   Route,
   Switch

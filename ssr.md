@@ -8,7 +8,7 @@ rendering, and the [client-side](#client-side) rendering.
 We have decided to have SPA with React routes.
 See [ROUTES_INFO](routes-info.md).
 
-```typescript
+```javascript
 import express from 'express';
 
 import { RoutesInfo } from '@quoin/react-utils';
@@ -17,7 +17,7 @@ import ssr from './ssr';
 import ssr404 from './ssr-404';
 
 export default () => {
-  const app: expressApplication = express();
+  const app = express();
 
   // Adding your express.static() paths
 
@@ -40,14 +40,14 @@ See [ROUTES_INFO](routes-info.md).
 
 ### ssr and ssr404
 
-The `src/server/ssr/index.ts` would be something like:
+The `src/server/ssr/index.js` would be something like:
 
-```typescript
+```javascript
 import content from './content';
 
-export default (req: express.Request, res: express.Response): void => {
+export default (req, res) => {
   try {
-    const html: string = content(PUBLIC_PATH, req.url);
+    const html = content(req, PUBLIC_PATH, req.url);
     res.status(200).type('text/html').send(html);
   } catch (err) {
     res.status(500).type('text/plain').send(err.toString());
@@ -55,14 +55,14 @@ export default (req: express.Request, res: express.Response): void => {
 };
 ```
 
-and `src/server/ssr404/index.ts` would be something like:
+and `src/server/ssr404/index.js` would be something like:
 
-```typescript
-import content from './../ssr/content';
+```javascript
+import content from '../ssr/content';
 
-export default (req: express.Request, res: express.Response): void => {
+export default (req, res) => {
   try {
-    const html: string = content(PUBLIC_PATH, req.url);
+    const html: string = content(req, PUBLIC_PATH, req.url);
     res.status(404).type('text/html').send(html);
   } catch (err) {
     res.status(500).type('text/plain').send(err.toString());
@@ -73,22 +73,26 @@ export default (req: express.Request, res: express.Response): void => {
 where could be defined as `PUBLIC_PATH: string = '/public'` in a constants file.
 That's the path where the assets would be.
 
-and `src/server/ssr/content.ts` would be something like:
+and `src/server/ssr/content.js` would be something like:
 
-```typescript
+```javascript
 import {
   createStore,
-  SsrAssetTypes
+  SsrAssetTypes,
+  ssrWithStore,
 } from '@quoin/react-utils';
 
-import { default as App, reducers } from './../../components';
-import { default as middlewares } from './../../middlewares';
+import App, { reducers } from '../../components';
+import middlewares from '../../middlewares';
 
-export default (assetPath: string = '', url: string = '/'): string => {
+export default (req, assetPath = '', url = '/') => {
   const initialState = fromJS({});
   const store = createStore(reducers, initialState, middlewares, process.env.NODE_ENV === 'development');
 
-  // store.dispatch() anything that is needed to initialize state.
+  //  Initialize state with anything needed
+  //    store.dispatch(someActionCreator({ some: value }));
+  //  or
+  //    someOrchestrator(store.dispatch, { some: value });
 
   const page = {
     title: "This is your page title",
@@ -122,16 +126,17 @@ export default (assetPath: string = '', url: string = '/'): string => {
 
 The client-side rendering should have much less logic in there.
 
-`src/client/index.ts`
+`src/client/index.js`
 
-```typescript
+```javascript
 import {
   hydrateWithStore,
-  RoutesInfo
+  RoutesInfo,
 } from '@quoin/react-utils';
 
-import { default as App, reducers } from './../components';
-import { default as middlewares } from './../middlewares';
+import { ROUTES_INFO } from '../constants';
+import App, { reducer } from '../components';
+import middlewares from '../middlewares';
 
 RoutesInfo.configure(ROUTES_INFO);
 
@@ -139,6 +144,8 @@ const store = hydrateWithStore(App, reducers, middlewares, process.env.NODE_ENV 
 
 // You can now fetch data from indexedDB and then dispatch it. Ideally, use one
 // of your existing application orchestrators.
+// NOTE: This may cause React to complain that the content changed, so I have
+// not really used it.
 orchestrators.initializeFromCache(store.dispatch, cachedData);
 ```
 

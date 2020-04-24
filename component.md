@@ -13,75 +13,73 @@ details.
 
 Here are the files in order of creation:
 
-- [index.ts](#index)
-- [constants.ts](#constants)
-- [namespace.ts](#namespace) (if it's a connected component)
-- [component.tsx](#component)
-- [container.ts](#container) (if it's a connected component)
-- [flux.ts](#flux) (if it's a connected component)
+- [index.js](#index)
+- [constants.js](#constants)
+- [namespace.js](#namespace) (if it's a connected component)
+- [component.jsx](#component)
+- [container.js](#container) (if it's a connected component)
+- [flux.js](#flux) (if it's a connected component)
 
-Even if `flux.ts` is a dependency of `container.ts`, it is created while
+Even if `flux.js` is a dependency of `container.js`, it is created while
 defining `container.js`, that's why it's later in the list.
 
 
-## index.ts <a name="index"></a>
+## index.js <a name="index"></a>
 
 If you have a connected component:
 
-```typescript
+```javascript
 export { default } from './container';
-export { reducers } from './flux'; // Only if it's a connected component with reducers
+export { reducer } from './flux'; // Only if it's a connected component with reducer
 ```
 
 If you only have a stateless component:
 
-```typescript
+```javascript
 export { default } from './component';
 ```
 
 
-## constants.ts <a name="constants"></a>
+## constants.js <a name="constants"></a>
 
-```typescript
+```javascript
 export const NAME = 'counter-app';
 
 // This only if you don't want to hard-code the attribute within your
-// reducers/selectors
-export const ATTRIBUTES: Readonly<{[index: string]: string}> = Object.freeze({
+// reducer/selectors
+export const ATTRIBUTES = Object.freeze({
   COUNTER: 'counter'
 });
 ```
 
 
-## namespace.ts <a name="namespace"></a>
+## namespace.js <a name="namespace"></a>
 
-```typescript
+```javascript
 import namespace from './../namespace';
 
-export default (path?: string): string => namespace(`COMPONENT_NAME${path ?  `.${path}` : ''}`);
+export default (path) => namespace(`COMPONENT_NAME${path ?  `.${path}` : ''}`);
 ```
 
 Here, `COMPONENT_NAME` is your directory base name in upper-case.
 
 
-## component.tsx <a name="component"></a>
+## component.jsx <a name="component"></a>
 
 This is the base component and should be stateless.
 
-```typescript
+```javascript
 import {
   errorBoundary,
-  React
+  React,
 } from '@quoin/react-utils';
 
 import { NAME } from './constants';
 
-interface Props {
-    counter: number;
-    click: Function
-}
-
-const Component: React.SFC<Props> = (props) => {
+const Component = ({
+  click,
+  counter,
+}) => {
   // Some logic here.
 
   return (
@@ -98,13 +96,13 @@ export default errorBoundary(Component);
 ```
 
 
-## container.ts <a name="container"></a>
+## container.js <a name="container"></a>
 
 We want to keep the connected components and disconnected components apart. So
 if you need access to the state (eg: `useSelector()`, `useDispatch()`, etc),
 this logic should be in this file.
 
-```typescript
+```javascript
 import {
   boundComponent,
   IState,
@@ -112,13 +110,13 @@ import {
   useSelector
 } from '@quoin/react-utils';
 
-import { default as Component, Props } from './component';
+import Component from './component';
 import { orchestrators, selectors } from './flux';
 
-const getComponentProps = (props: any): Props => {
+const getComponentProps = (props) => {
   const dispatch = useDispatch();
 
-  const counter = useSelector<IState, number>(selectors.counter);
+  const counter = useSelector(selectors.counter);
 
   return {
     counter,
@@ -130,7 +128,7 @@ export default boundComponent(Component, getComponentProps);
 ```
 
 
-## flux.ts <a name="flux"></a>
+## flux.js <a name="flux"></a>
 
 This file is where the flux flow is defined. We have decided to combine the
 different parts into a single file instead of individual files because it was a
@@ -142,7 +140,7 @@ exported.
 
 I would usually start with the global structure:
 
-```typescript
+```javascript
 import { Map } from 'immutable';
 
 import {
@@ -154,30 +152,21 @@ import {
 import { ATTRIBUTES } from './constants';
 import namespace from './namespace';
 
-const actions: { [index: string]: string } = namespacedActions(namespace, [
+const actions = namespacedActions(namespace, [
 ]);
 
-interface ActionCreatorsInterface {
-}
-
-const actionCreators: Readonly<ActionCreatorsInterface> = Object.freeze({
+const actionCreators = Object.freeze({
 });
 
-interface OrchestratorsInterface {
-}
-
-export const orchestrators: Readonly<OrchestratorsInterface> = Object.freeze({
+export const orchestrators = Object.freeze({
 });
 
-interface SelectorInterface {
-}
-
-export const selectors: Readonly<SelectorInterface> = Object.freeze({
+export const selectors = Object.freeze({
 });
 
-const DEFAULT_ROOT_STATE = (Map() as IState);
+const DEFAULT_ROOT_STATE = Map();
 
-export const reducers = concatenateReducers([{
+export const reducer = concatenateReducers([{
 }]);
 ```
 
@@ -186,9 +175,9 @@ export const reducers = concatenateReducers([{
 Since we know what data we need in the container, `selectors` is a good first
 candidate.
 
-```typescript
-export const selectors: Readonly<SelectorInterface> = Object.freeze({
-  counter: (state: IState): number => getSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, 0)
+```javascript
+export const selectors = Object.freeze({
+  counter: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, 0)
 });
 ```
 
@@ -197,9 +186,9 @@ export const selectors: Readonly<SelectorInterface> = Object.freeze({
 
 Then are defined the interactions.
 
-```typescript
-export const orchestrators: Readonly<OrchestratorsInterface> = Object.freeze({
-  click: (dispatch: Function, counter: number) => dispatch(actionCreators.set(counter))
+```javascript
+export const orchestrators = Object.freeze({
+  click: (dispatch, counter) => dispatch(actionCreators.set(counter))
 });
 ```
 
@@ -208,9 +197,9 @@ export const orchestrators: Readonly<OrchestratorsInterface> = Object.freeze({
 
 That defines what action creators are needed:
 
-```typescript
-const actionCreators: Readonly<ActionCreatorsInterface> = Object.freeze({
-  set: (counter: number): IAction => actionCreator(actions.SET, { counter })
+```javascript
+const actionCreators = Object.freeze({
+  set: (counter) => actionCreator(actions.SET, { counter })
 });
 ```
 
@@ -219,18 +208,18 @@ const actionCreators: Readonly<ActionCreatorsInterface> = Object.freeze({
 
 The key to the `actionCreator()` above needs to be set on the `actions`.
 
-```typescript
-const actions: { [index: string]: string } = namespacedActions(namespace, [
+```javascript
+const actions = namespacedActions(namespace, [
   'SET'
 ]);
 ```
 
 
-### reducers
+### reducer
 
-```typescript
-export const reducers = concatenateReducers([{
+```javascript
+export const reducer = concatenateReducers([{
   actions: [ actions.SET ],
-  reducer: (state: IState = DEFAULT_ROOT_STATE, action: IAction): IState => setSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, action.payload?.counter)
+  reducer: (state = DEFAULT_ROOT_STATE, action) => setSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, action.payload?.counter)
 }]);
 ```
