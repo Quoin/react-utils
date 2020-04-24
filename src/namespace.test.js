@@ -1,1 +1,1 @@
-export default () => `TEST-NAMESPACE`;
+export default () => 'TEST-NAMESPACE';

@@ -11,13 +11,13 @@ const BASIC_ATTRIBUTE = 'test-basic-reducer-attribute';
 const BASIC_VALUE = fromJS({ value: 'test-basic-reducer-value' });
 
 const basicReducer = (state = DEFAULT_STATE, action) => {
-    switch (action.type) {
-        case BASIC_TYPE:
-            return state.set(BASIC_ATTRIBUTE, BASIC_VALUE);
+  switch (action.type) {
+    case BASIC_TYPE:
+      return state.set(BASIC_ATTRIBUTE, BASIC_VALUE);
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 const GUARDED_TYPE = 'test-guarded-reducer-type';
@@ -25,57 +25,57 @@ const GUARDED_ATTRIBUTE = 'test-guarded-reducer-attribute';
 const GUARDED_VALUE = fromJS({ value: 'test-guarded-reducer-value' });
 
 const guardedDefinition = {
-    actions: [ GUARDED_TYPE ],
-    reducer: (state = DEFAULT_STATE, _action) => state.set(GUARDED_ATTRIBUTE, GUARDED_VALUE)
+  actions: [GUARDED_TYPE],
+  reducer: (state = DEFAULT_STATE) => state.set(GUARDED_ATTRIBUTE, GUARDED_VALUE),
 };
 
-describe(`src/concatenate-reducers`, () => {
-    it(`is a function with 1 param`, () => {
-        expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
+describe('src/concatenate-reducers', () => {
+  it('is a function with 1 param', () => {
+    expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
+  });
+
+  it('returns a function with 2 params', () => {
+    const reducer = moduleToTest([]);
+    expect(reducer).to.be.a('function').and.to.have.lengthOf(2);
+  });
+
+  describe('single basic reducer', () => {
+    let reducer;
+
+    beforeEach(() => {
+      reducer = moduleToTest([basicReducer]);
     });
 
-    it(`returns a function with 2 params`, () => {
-        const reducer = moduleToTest([]);
-        expect(reducer).to.be.a('function').and.to.have.lengthOf(2);
+    it('handles wrong type', () => {
+      const state = reducer(fromJS({}), actionCreator(FOO_TYPE));
+      expect(state).to.equal(fromJS({}));
     });
 
-    describe(`single basic reducer`, () => {
-        let reducer;
+    it('handles correct type', () => {
+      const state = reducer(fromJS({}), actionCreator(BASIC_TYPE));
+      expect(state).to.equal(fromJS({
+        [BASIC_ATTRIBUTE]: BASIC_VALUE,
+      }));
+    });
+  });
 
-        beforeEach(() => {
-            reducer = moduleToTest([ basicReducer ]);
-        });
+  describe('guarded definition', () => {
+    let reducer;
 
-        it(`handles wrong type`, () => {
-            const state = reducer(fromJS({}), actionCreator(FOO_TYPE));
-            expect(state).to.equal(fromJS({}));
-        });
-
-        it(`handles correct type`, () => {
-            const state = reducer(fromJS({}), actionCreator(BASIC_TYPE));
-            expect(state).to.equal(fromJS({
-                [BASIC_ATTRIBUTE]: BASIC_VALUE
-            }));
-        });
+    beforeEach(() => {
+      reducer = moduleToTest([guardedDefinition]);
     });
 
-    describe(`guarded definition`, () => {
-        let reducer;
-
-        beforeEach(() => {
-            reducer = moduleToTest([ guardedDefinition ]);
-        });
-
-        it(`handles wrong type`, () => {
-            const state = reducer(fromJS({}), actionCreator(FOO_TYPE));
-            expect(state).to.equal(fromJS({}));
-        });
-
-        it(`handles correct type`, () => {
-            const state = reducer(fromJS({}), actionCreator(GUARDED_TYPE));
-            expect(state).to.equal(fromJS({
-                [GUARDED_ATTRIBUTE]: GUARDED_VALUE
-            }));
-        });
+    it('handles wrong type', () => {
+      const state = reducer(fromJS({}), actionCreator(FOO_TYPE));
+      expect(state).to.equal(fromJS({}));
     });
+
+    it('handles correct type', () => {
+      const state = reducer(fromJS({}), actionCreator(GUARDED_TYPE));
+      expect(state).to.equal(fromJS({
+        [GUARDED_ATTRIBUTE]: GUARDED_VALUE,
+      }));
+    });
+  });
 });

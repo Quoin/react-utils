@@ -6,31 +6,31 @@ export { renderToString } from 'react-dom/server';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
 
 export {
-    batch,
-    Provider,
-    useDispatch,
-    useSelector
+  batch,
+  Provider,
+  useDispatch,
+  useSelector,
 } from 'react-redux';
 
 export {
-    BrowserRouter,
-    HashRouter,
-    Link,
-    MemoryRouter,
-    NavLink,
-    Prompt,
-    Redirect,
-    Route,
-    Router,
-    StaticRouter,
-    Switch,
-    generatePath,
-    matchPath,
-    useHistory,
-    useLocation,
-    useParams,
-    useRouteMatch,
-    withRouter
+  BrowserRouter,
+  HashRouter,
+  Link,
+  MemoryRouter,
+  NavLink,
+  Prompt,
+  Redirect,
+  Route,
+  Router,
+  StaticRouter,
+  Switch,
+  generatePath,
+  matchPath,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+  withRouter,
 } from 'react-router-dom';
 
 export { default as actionCreator } from './action-creator';
@@ -48,6 +48,6 @@ export { default as setSubstate } from './set-substate';
 export { default as RoutesInfo } from './routes-info';
 export { default as setSubstateAttribute } from './set-substate-attribute';
 export {
-    AssetTypes as SsrAssetTypes,
-    withStore as ssrWithStore
+  AssetTypes as SsrAssetTypes,
+  withStore as ssrWithStore,
 } from './ssr';

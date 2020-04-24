@@ -11,7 +11,7 @@ chai.use(dirtyChai);
 
 const doc = new jsdom.JSDOM('<!doctype html><html><body></body></html>');
 global.window = doc.window;
-global.document = window.document;
+global.document = global.window.document;
 
 Enzyme.configure({ adapter: new Adapter() });
 

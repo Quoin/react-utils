@@ -12,40 +12,51 @@ import baseComponentName from './base-component-name';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
 
 export default (Component) => {
-    const componentName = baseComponentName(Component.displayName || 'Anonymous');
+  const componentName = baseComponentName(Component.displayName || 'Anonymous');
 
-    class ErrorBoundary extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { hasError: false };
-        }
-
-        static getDerivedStateFromError(error) {
-            // Update state so the next render will show the fallback UI.
-            return { hasError: Boolean(error) };
-        }
-
-        componentDidCatch(error, errorInfo) {
-            // You can also log the error to an error reporting service
-            console.error(
-                `${ErrorBoundary.displayName}.componentDidCatch():`,
-                `error=`, error,
-                `errorInfo=`, errorInfo && errorInfo.componentStack
-            );
-        }
-
-        render() {
-            if (this.state.hasError) {
-                return <h1 className="text-danger">*** REACT ERROR: {componentName} ***</h1>;
-            } else {
-                return <Component { ...this.props } />;
-            }
-        }
+  class ErrorBoundary extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { hasError: false };
     }
 
-    ErrorBoundary.displayName = `${componentName}${ERROR_BOUNDARY_SUFFIX}`;
-    ErrorBoundary.propTypes = Component.propTypes;
-    ErrorBoundary.defaultProps = Component.defaultProps;
+    static getDerivedStateFromError(error) {
+      // Update state so the next render will show the fallback UI.
+      return { hasError: Boolean(error) };
+    }
 
-    return ErrorBoundary;
+    componentDidCatch(error, errorInfo) {
+      // You can also log the error to an error reporting service
+      // eslint-disable-next-line no-console
+      console.error(
+        `${ErrorBoundary.displayName}.componentDidCatch():`,
+        'error=', error,
+        'errorInfo=', errorInfo && errorInfo.componentStack,
+      );
+    }
+
+    render() {
+      const { hasError } = this.state;
+      if (hasError) {
+        return (
+          <h1 className="text-danger">
+            *** REACT ERROR:
+            {' '}
+            {componentName}
+            {' '}
+            ***
+          </h1>
+        );
+      }
+
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      return <Component {...this.props} />;
+    }
+  }
+
+  ErrorBoundary.displayName = `${componentName}${ERROR_BOUNDARY_SUFFIX}`;
+  ErrorBoundary.propTypes = Component.propTypes;
+  ErrorBoundary.defaultProps = Component.defaultProps;
+
+  return ErrorBoundary;
 };
