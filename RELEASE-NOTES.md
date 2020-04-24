@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.1 - 2020-04-24
+
+- Fixed `<meta>` tags that don't require `content`.
+
 ## 1.0.0 - 2020-04-22
 
 - #16: Converted back to JS-only.

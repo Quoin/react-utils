@@ -11,10 +11,18 @@ export default (elements = []) => {
 
     return workElements.map((element) => {
         const props = {
-            [element.attribute]: element.value,
-            content: element.content
+            [element.attribute]: element.value
         };
 
-        return (<meta key={element.content} {...props} />);
+        if (element.content) {
+            props.content = element.content;
+        }
+
+        const key = element.content
+            ? `content:${element.content}`
+            : `${element.attribute}:${element.value}`
+        ;
+
+        return (<meta key={key} {...props} />);
     });
 };
