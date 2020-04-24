@@ -32,7 +32,7 @@ const Component = ({
 };
 
 Component.propTypes = {
-  Component: PropTypes.element.isRequired,
+  Component: PropTypes.elementType.isRequired,
   page: PropTypes.shape({
     assets: PropTypes.array,
     meta: PropTypes.array,
