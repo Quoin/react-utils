@@ -22,7 +22,7 @@ const Component = ({
         {generateMetaTags(page.meta)}
         {generateLinkTags(page.assets)}
       </head>
-      <body>
+      <body className={page.bodyClassnames}>
         <div id={PLACEHOLDER}><AppComponent /></div>
         <script id={PRELOADED_STATE_PLACEHOLDER_ID} dangerouslySetInnerHTML={{ __html: `window.${PRELOADED_STATE} = ${stateAsString};` }} />
         {generateScriptTags(page.assets)}
@@ -35,6 +35,7 @@ Component.propTypes = {
   Component: PropTypes.elementType.isRequired,
   page: PropTypes.shape({
     assets: PropTypes.array,
+    bodyClassnames: PropTypes.string,
     meta: PropTypes.array,
     title: PropTypes.string.isRequired,
   }).isRequired,

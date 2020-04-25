@@ -77,6 +77,7 @@ and `src/server/ssr/content.js` would be something like:
 
 ```javascript
 import {
+  classnames,
   createStore,
   SsrAssetTypes,
   ssrWithStore,
@@ -96,6 +97,9 @@ export default (req, assetPath = '', url = '/') => {
 
   const page = {
     title: "This is your page title",
+    bodyClassnames: classnames({
+      'someClass': someCondition
+    }),
     meta: [{
       attribute: 'name',
       value: 'description',

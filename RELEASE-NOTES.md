@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.3 - 2020-04-24
+
+- Allow to pass class to `<body>`.
+
 ## 1.0.2 - 2020-04-24
 
 - Fixed propTypes to get `elementType`.
