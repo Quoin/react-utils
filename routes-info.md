@@ -8,8 +8,6 @@ With the following definition:
 export const ROUTES_INFO = [{
   name: 'home',
   path: '/',
-  template: App,
-  route: 'home'
 }];
 ```
 
@@ -18,7 +16,7 @@ In your `component.jsx` (or any code), you will be able to use:
 ```javascript
 import {
   Route,
-  Switch
+  Switch,
 } from '@quoin/react-utils';
 ```
 

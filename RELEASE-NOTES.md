@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.4 - 2020-04-29
+
+- Allow passing a `preRender(state)` parameter to `hydrateWithStore()`.
+
 ## 1.0.3 - 2020-04-24
 
 - Allow to pass class to `<body>`.

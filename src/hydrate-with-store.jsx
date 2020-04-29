@@ -15,11 +15,17 @@ export default (
   middlewares,
   inDevelopment,
   projectInitType,
+  preRender,
 ) => {
   const placeholder = document.querySelector(`#${PLACEHOLDER}`);
   if (placeholder) {
     const initialState = window[PRELOADED_STATE];
     const store = createStore(reducers, fromJS(initialState), middlewares, inDevelopment, projectInitType);
+
+    if (preRender) {
+      preRender(store.getState());
+    }
+
     const jsx = (
       <Provider store={store}>
         <BrowserRouter>

@@ -144,7 +144,14 @@ import middlewares from '../middlewares';
 
 RoutesInfo.configure(ROUTES_INFO);
 
-const store = hydrateWithStore(App, reducers, middlewares, process.env.NODE_ENV === 'development');
+const store = hydrateWithStore(
+  App,
+  reducers,
+  middlewares,
+  process.env.NODE_ENV === 'development',
+  null,
+  (state) => { /* state is read-only */ }
+);
 
 // You can now fetch data from indexedDB and then dispatch it. Ideally, use one
 // of your existing application orchestrators.
