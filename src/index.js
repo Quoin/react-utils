@@ -1,6 +1,8 @@
 export { default as classnames } from 'classnames';
 export { default as PropTypes } from 'prop-types';
-export { default as React, Fragment, useEffect, useRef } from 'react';
+export {
+  default as React, Fragment, useEffect, useRef,
+} from 'react';
 export { hydrate, render } from 'react-dom';
 export { renderToString } from 'react-dom/server';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
