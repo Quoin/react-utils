@@ -44,6 +44,7 @@ describe('src/index', () => {
     propertyIsFrom('react', ReactModule, [
       'Fragment',
       'useEffect',
+      'useRef',
     ]);
     propertyIsFrom('react', React, 'React');
 

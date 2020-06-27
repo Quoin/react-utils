@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.5 - 2020-06-27
+
+- Exporting `useRef` from React.
+
 ## 1.0.4 - 2020-04-29
 
 - Allow passing a `preRender(state)` parameter to `hydrateWithStore()`.
