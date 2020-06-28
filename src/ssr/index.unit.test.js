@@ -1,34 +1,29 @@
+import exposesProperties from '../exposes-properties.test';
+
 import * as moduleToTest from './index';
 
 describe('src/ssr/index', () => {
-  let clone;
-
-  before(() => {
-    clone = { ...moduleToTest };
-  });
+  const clone = {...moduleToTest };
 
   after(() => {
     expect(clone).to.be.empty();
   });
 
   describe('AssetTypes', () => {
-    it('is enum', () => {
-      expect(clone).to.have.property('AssetTypes');
-    });
-
-    [
-      'LINK',
-      'SCRIPT',
-    ].forEach((property) => {
-      it(`exports '${property}' as string`, () => {
-        expect(clone.AssetTypes).to.have.property(property);
-        expect(clone.AssetTypes[property]).is.a('string');
-      });
-    });
+    const assetTypesClone = { ...clone.AssetTypes };
 
     after(() => {
       delete clone.AssetTypes;
     });
+
+    it('is enum', () => {
+      expect(clone).to.have.property('AssetTypes');
+    });
+
+    exposesProperties(assetTypesClone, [
+      'LINK',
+      'SCRIPT',
+    ], 'string');
   });
 
   describe('withStore()', () => {

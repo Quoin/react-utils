@@ -8,65 +8,48 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 
+import exposesProperties from './exposes-properties.test';
+import propertiesAreFrom from './properties-are-from.test';
+
 import * as moduleToTest from './index';
 
 describe('src/index', () => {
-  let clone;
+  const clone = { ...moduleToTest };
 
-  before(() => {
-    clone = { ...moduleToTest };
+  after(() => {
+    expect(clone).to.be.empty();
   });
 
-  const propertyIsFrom = (moduleName, importedModule, properties) => {
-    describe(moduleName, () => {
-      if (Array.isArray(properties)) {
-        properties.forEach((property) => {
-          it(`export { ${property} } from '${moduleName}'`, () => {
-            expect(clone).to.have.property(property);
-            expect(clone[property]).to.equal(importedModule[property]);
-            delete clone[property];
-          });
-        });
-      } else {
-        it(`exports { default as ${properties} } from '${moduleName}'`, () => {
-          expect(clone).to.have.property(properties);
-          expect(clone[properties]).to.equal(importedModule);
-          delete clone[properties];
-        });
-      }
-    });
-  };
-
   describe('re-export from 3rd parties', () => {
-    propertyIsFrom('classnames', classnames, 'classnames');
-    propertyIsFrom('prop-types', PropTypes, 'PropTypes');
+    propertiesAreFrom(clone, 'classnames', classnames, 'classnames');
+    propertiesAreFrom(clone, 'prop-types', PropTypes, 'PropTypes');
 
-    propertyIsFrom('react', ReactModule, [
+    propertiesAreFrom(clone, 'react', ReactModule, [
       'Fragment',
       'useEffect',
       'useRef',
     ]);
-    propertyIsFrom('react', React, 'React');
+    propertiesAreFrom(clone, 'react', React, 'React');
 
-    propertyIsFrom('react-dom', ReactDOM, [
+    propertiesAreFrom(clone, 'react-dom', ReactDOM, [
       'hydrate',
       'render',
     ]);
 
-    propertyIsFrom('react-dom/server', ReactDomServer, [
+    propertiesAreFrom(clone, 'react-dom/server', ReactDomServer, [
       'renderToString',
     ]);
 
-    propertyIsFrom('react-immutable-proptypes', ImmutablePropTypes, 'ImmutablePropTypes');
+    propertiesAreFrom(clone, 'react-immutable-proptypes', ImmutablePropTypes, 'ImmutablePropTypes');
 
-    propertyIsFrom('react-redux', ReactRedux, [
+    propertiesAreFrom(clone, 'react-redux', ReactRedux, [
       'batch',
       'Provider',
       'useDispatch',
       'useSelector',
     ]);
 
-    propertyIsFrom('react-router-dom', ReactRouterDom, [
+    propertiesAreFrom(clone, 'react-router-dom', ReactRouterDom, [
       'BrowserRouter',
       'HashRouter',
       'Link',
@@ -88,8 +71,9 @@ describe('src/index', () => {
     ]);
   });
 
-  [
+  exposesProperties(clone, [
     'actionCreator',
+    'baseClassname',
     'boundComponent',
     'concatenateReducers',
     'createStore',
@@ -106,14 +90,5 @@ describe('src/index', () => {
     'setSubstateAttribute',
     'SsrAssetTypes',
     'ssrWithStore',
-  ].forEach((property) => {
-    it(`should have property '${property}'`, () => {
-      expect(clone, `Property ${property}`).to.have.property(property);
-      delete clone[property];
-    });
-  });
-
-  after(() => {
-    expect(clone).to.be.empty();
-  });
+  ]);
 });

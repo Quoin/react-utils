@@ -36,6 +36,7 @@ export {
 } from 'react-router-dom';
 
 export { default as actionCreator } from './action-creator';
+export { default as baseClassname } from './base-classname';
 export { default as boundComponent } from './bound-component';
 export { default as concatenateReducers } from './concatenate-reducers';
 export { DEFAULT_STATE, INIT_TYPE } from './constants';
