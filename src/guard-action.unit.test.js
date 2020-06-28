@@ -51,4 +51,10 @@ describe('src/guard-action', () => {
       [TEST_ATTRIBUTE]: TEST_VALUE,
     }));
   });
+
+  it('returns initial state when action but no reducer', () => {
+    const reducer = moduleToTest(null, ['foo']);
+    const state = reducer(INITIAL_STATE, actionCreator(TEST_ACTION));
+    expect(state).to.equal(INITIAL_STATE);
+  });
 });

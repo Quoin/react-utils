@@ -5,6 +5,7 @@ export default (clone, moduleName, importedModule, properties) => {
         it(`exports { ${property} } from '${moduleName}'`, () => {
           expect(clone, `Property '${property}'`).to.have.property(property);
           expect(clone[property]).to.equal(importedModule[property]);
+          // eslint-disable-next-line no-param-reassign
           delete clone[property];
         });
       });
@@ -12,6 +13,7 @@ export default (clone, moduleName, importedModule, properties) => {
       it(`exports { default as ${properties} } from '${moduleName}'`, () => {
         expect(clone).to.have.property(properties);
         expect(clone[properties]).to.equal(importedModule);
+        // eslint-disable-next-line no-param-reassign
         delete clone[properties];
       });
     }

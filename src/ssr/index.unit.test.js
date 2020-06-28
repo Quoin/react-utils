@@ -3,7 +3,7 @@ import exposesProperties from '../exposes-properties.test';
 import * as moduleToTest from './index';
 
 describe('src/ssr/index', () => {
-  const clone = {...moduleToTest };
+  const clone = { ...moduleToTest };
 
   after(() => {
     expect(clone).to.be.empty();

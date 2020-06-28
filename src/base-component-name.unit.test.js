@@ -7,6 +7,10 @@ describe('src/base-component-name', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });
 
+  it('returns empty string if no params', () => {
+    expect(moduleToTest()).to.equal('');
+  });
+
   it('should remove error boundary suffix if at the end', () => {
     const moduleName = `FOO${ERROR_BOUNDARY_SUFFIX}`;
     const value = moduleToTest(moduleName);
