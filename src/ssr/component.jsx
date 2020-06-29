@@ -7,6 +7,11 @@ import errorBoundary from '../error-boundary';
 import generateLinkTags from './generate-link-tags';
 import generateMetaTags from './generate-meta-tags';
 import generateScriptTags from './generate-script-tags';
+import {
+  link as linkShape,
+  meta as metaShape,
+  script as scriptShape,
+} from './shapes';
 
 const Component = ({
   Component: AppComponent,
@@ -34,9 +39,9 @@ const Component = ({
 Component.propTypes = {
   Component: PropTypes.elementType.isRequired,
   page: PropTypes.shape({
-    assets: PropTypes.array,
+    assets: PropTypes.arrayOf(PropTypes.oneOfType([linkShape, scriptShape])),
     bodyClassnames: PropTypes.string,
-    meta: PropTypes.array,
+    meta: PropTypes.arrayOf(metaShape),
     title: PropTypes.string.isRequired,
   }).isRequired,
   state: ImmutablePropTypes.map.isRequired,
