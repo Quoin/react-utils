@@ -73,12 +73,13 @@ describe('src/index', () => {
 
   exposesProperties(clone, [
     'actionCreator',
-    'baseClassname',
     'boundComponent',
     'concatenateReducers',
     'createStore',
     'DEFAULT_STATE',
     'errorBoundary',
+    'generateClassname',
+    'generateClassnameFromPrefix',
     'getSubstate',
     'getSubstateAttribute',
     'hydrateWithStore',
