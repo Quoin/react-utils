@@ -4,6 +4,7 @@ node_js:
 install:
   - npm ci
 script:
+  - npm run check
   - npm run -s coverage
   - npm run coveralls
 branches:
