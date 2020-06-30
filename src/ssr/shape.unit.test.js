@@ -2,7 +2,7 @@ import exposesProperties from '../exposes-properties.test';
 
 import * as moduleToTest from './shapes';
 
-describe("src/ssr/shapes", () => {
+describe('src/ssr/shapes', () => {
   const clone = { ...moduleToTest };
 
   after(() => {
@@ -14,5 +14,4 @@ describe("src/ssr/shapes", () => {
     'meta',
     'script',
   ]);
-
 });
