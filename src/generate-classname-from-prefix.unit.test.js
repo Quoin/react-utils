@@ -15,4 +15,12 @@ describe('src/generate-classname-from-prefix', () => {
     expect(moduleToTest('a', 'b')('c')).to.equal('a--b--c');
     expect(moduleToTest('a', 'b')('c', 'd')).to.equal('a--b--c--d');
   });
+
+  it('accepts no prefix', () => {
+    expect(moduleToTest()('c', 'd')).to.equal('c--d');
+  });
+
+  it('accepts no suffix', () => {
+    expect(moduleToTest('a', 'b')()).to.equal('a--b');
+  });
 });
