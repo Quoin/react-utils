@@ -78,6 +78,7 @@ describe('src/index', () => {
     'createStore',
     'DEFAULT_STATE',
     'errorBoundary',
+    'flattenHal',
     'generateClassname',
     'generateClassnameFromPrefix',
     'getSubstate',
