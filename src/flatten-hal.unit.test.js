@@ -144,5 +144,23 @@ describe('src/flatten-hal', () => {
         },
       });
     });
+
+    it('handles non-object attributes', () => {
+      [{
+        foo: null,
+      }, {
+        foo: 0,
+      }, {
+        foo: 1,
+      }, {
+        foo: '',
+      }, {
+        foo: 'bar',
+      }].forEach((hal) => {
+        const value = moduleToTest(hal);
+        expect(value).to.deep.equal(hal);
+      });
+    });
+
   });
 });

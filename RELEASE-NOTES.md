@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.9 - 2020-08-18
+
+- Fixed `flattenHal()` to verify attributes values are object first.
+
 ## 1.0.8 - 2020-08-18
 
 - Adjust `flattenHal()` to convert any attributes if _links or _embedded present.
