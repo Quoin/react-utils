@@ -7,6 +7,13 @@ const flatten = ({
 }) => {
   const clone = cloneDeep(data);
 
+  Object.entries(clone).forEach(([key, value]) => {
+    // eslint-disable-next-line no-underscore-dangle
+    if (value._links || value._embedded) {
+      clone[key] = flatten(value);
+    }
+  });
+
   if (links) {
     if (clone.links) {
       throw new Error("Duplicate key 'links'.");

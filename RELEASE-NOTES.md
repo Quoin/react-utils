@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.8 - 2020-08-18
+
+- Adjust `flattenHal()` to convert any attributes if _links or _embedded present.
+
 ## 1.0.7 - 2020-08-18
 
 - Adding `flattenHal()`.

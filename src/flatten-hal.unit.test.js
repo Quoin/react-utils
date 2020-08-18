@@ -98,5 +98,51 @@ describe('src/flatten-hal', () => {
       hal.var1 = 'new-val1';
       expect(value).to.deep.equal(expected);
     });
+
+    it('converts attributes with _links', () => {
+      const hal = {
+        var1: {
+          _links: {
+            self: {
+              href: 'href',
+            },
+          },
+        },
+      };
+
+      const value = moduleToTest(hal);
+
+      expect(value).to.deep.equal({
+        var1: {
+          links: {
+            self: {
+              href: 'href',
+            },
+          },
+        },
+      });
+    });
+
+    it('converts attributes with _embedded', () => {
+      const hal = {
+        var1: {
+          _embedded: {
+            self: [{
+              href: 'href',
+            }],
+          },
+        },
+      };
+
+      const value = moduleToTest(hal);
+
+      expect(value).to.deep.equal({
+        var1: {
+          self: [{
+            href: 'href',
+          }],
+        },
+      });
+    });
   });
 });
