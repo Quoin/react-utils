@@ -2,12 +2,22 @@ export default (clone, moduleName, importedModule, properties) => {
   describe(moduleName, () => {
     if (Array.isArray(properties)) {
       properties.forEach((property) => {
-        it(`exports { ${property} } from '${moduleName}'`, () => {
-          expect(clone, `Property '${property}'`).to.have.property(property);
-          expect(clone[property]).to.equal(importedModule[property]);
-          // eslint-disable-next-line no-param-reassign
-          delete clone[property];
-        });
+        if (Array.isArray(property)) {
+          const [asProperty, moduleProperty] = property;
+          it(`exports { ${moduleProperty} as ${asProperty} } from '${moduleName}'`, () => {
+            expect(clone, `Property '${asProperty}'`).to.have.property(asProperty);
+            expect(clone[asProperty]).to.equal(importedModule[moduleProperty]);
+            // eslint-disable-next-line no-param-reassign
+            delete clone[asProperty];
+          });
+        } else {
+          it(`exports { ${property} } from '${moduleName}'`, () => {
+            expect(clone, `Property '${property}'`).to.have.property(property);
+            expect(clone[property]).to.equal(importedModule[property]);
+            // eslint-disable-next-line no-param-reassign
+            delete clone[property];
+          });
+        }
       });
     } else {
       it(`exports { default as ${properties} } from '${moduleName}'`, () => {

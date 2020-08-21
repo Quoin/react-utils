@@ -161,6 +161,5 @@ describe('src/flatten-hal', () => {
         expect(value).to.deep.equal(hal);
       });
     });
-
   });
 });

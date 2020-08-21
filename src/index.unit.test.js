@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import hal from 'hal';
 import PropTypes from 'prop-types';
 import React from 'react';
 import * as ReactModule from 'react';
@@ -22,6 +23,10 @@ describe('src/index', () => {
 
   describe('re-export from 3rd parties', () => {
     propertiesAreFrom(clone, 'classnames', classnames, 'classnames');
+    propertiesAreFrom(clone, 'hal', hal, [
+      ['HalResource', 'Resource'],
+      ['HalLink', 'Link'],
+    ]);
     propertiesAreFrom(clone, 'prop-types', PropTypes, 'PropTypes');
 
     propertiesAreFrom(clone, 'react', ReactModule, [

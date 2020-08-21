@@ -1,4 +1,5 @@
 export { default as classnames } from 'classnames';
+export { Resource as HalResource, Link as HalLink } from 'hal';
 export { default as PropTypes } from 'prop-types';
 export {
   default as React, Fragment, useEffect, useRef,
