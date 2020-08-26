@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.11 - 2020-08-26
+
+- `export { default as Skeleton } from 'react-loading-skeleton';`
+
 ## 1.0.10 - 2020-08-21
 
 - `export { Resource as HalResource, Link as HalLink } from 'hal';`

@@ -6,6 +6,7 @@ import * as ReactModule from 'react';
 import ReactDOM from 'react-dom';
 import * as ReactDomServer from 'react-dom/server';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import Skeleton from 'react-loading-skeleton';
 import ReactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 
@@ -46,6 +47,8 @@ describe('src/index', () => {
     ]);
 
     propertiesAreFrom(clone, 'react-immutable-proptypes', ImmutablePropTypes, 'ImmutablePropTypes');
+
+    propertiesAreFrom(clone, 'react-loading-skeleton', Skeleton, 'Skeleton');
 
     propertiesAreFrom(clone, 'react-redux', ReactRedux, [
       'batch',

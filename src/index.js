@@ -7,6 +7,7 @@ export {
 export { hydrate, render } from 'react-dom';
 export { renderToString } from 'react-dom/server';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
+export { default as Skeleton } from 'react-loading-skeleton';
 
 export {
   batch,
