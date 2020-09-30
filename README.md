@@ -28,3 +28,8 @@ global.React = React;
 - See [How to create a component](component.md)
 - See [How to make SSR app](ssr.md)
 - See [How to configure React Router](routes-info.md)
+
+## Chrome DevTools
+
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)

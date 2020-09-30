@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.12 - 2020-09-30
+
+- `export { Helmet } from 'react-helmet';`
+
 ## 1.0.11 - 2020-08-26
 
 - `export { default as Skeleton } from 'react-loading-skeleton';`

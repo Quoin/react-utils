@@ -5,6 +5,7 @@ import React from 'react';
 import * as ReactModule from 'react';
 import ReactDOM from 'react-dom';
 import * as ReactDomServer from 'react-dom/server';
+import * as ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Skeleton from 'react-loading-skeleton';
 import ReactRouterDom from 'react-router-dom';
@@ -44,6 +45,10 @@ describe('src/index', () => {
 
     propertiesAreFrom(clone, 'react-dom/server', ReactDomServer, [
       'renderToString',
+    ]);
+
+    propertiesAreFrom(clone, 'react-helmet', ReactHelmet, [
+      'Helmet',
     ]);
 
     propertiesAreFrom(clone, 'react-immutable-proptypes', ImmutablePropTypes, 'ImmutablePropTypes');

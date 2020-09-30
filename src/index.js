@@ -6,6 +6,7 @@ export {
 } from 'react';
 export { hydrate, render } from 'react-dom';
 export { renderToString } from 'react-dom/server';
+export { Helmet } from 'react-helmet';
 export { default as ImmutablePropTypes } from 'react-immutable-proptypes';
 export { default as Skeleton } from 'react-loading-skeleton';
 
