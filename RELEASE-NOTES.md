@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.13 - 2020-10-02
+
+- Adding `Component.displayName` to `<SSR>`.
+
 ## 1.0.12 - 2020-09-30
 
 - `export { Helmet } from 'react-helmet';`

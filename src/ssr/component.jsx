@@ -36,6 +36,8 @@ const Component = ({
   );
 };
 
+Component.displayName = 'ReactUtils.SSR';
+
 Component.propTypes = {
   Component: PropTypes.elementType.isRequired,
   page: PropTypes.shape({
