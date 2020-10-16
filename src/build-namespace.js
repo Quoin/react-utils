@@ -1,1 +1,1 @@
-export default (name, path) => path ? `${name}.${path}` : name;
+export default (name, path) => (path ? `${name}.${path}` : name);

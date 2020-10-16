@@ -96,6 +96,7 @@ describe('src/index', () => {
     'flattenHal',
     'generateClassname',
     'generateClassnameFromPrefix',
+    'generateClassnamesWithPrefix',
     'getSubstate',
     'getSubstateAttribute',
     'hydrateWithStore',
