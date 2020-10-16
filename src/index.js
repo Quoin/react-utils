@@ -40,10 +40,12 @@ export {
 
 export { default as actionCreator } from './action-creator';
 export { default as boundComponent } from './bound-component';
+export { default as buildNamespace } from './build-namespace';
 export { default as concatenateReducers } from './concatenate-reducers';
 export { DEFAULT_STATE, INIT_TYPE } from './constants';
 export { default as createStore } from './create-store';
 export { default as errorBoundary } from './error-boundary';
+export { default as flattenFilespace } from './flatten-filespace';
 export { default as flattenHal } from './flatten-hal';
 export { default as generateClassname } from './generate-classname';
 export { default as generateClassnameFromPrefix } from './generate-classname-from-prefix';
