@@ -22,11 +22,16 @@ describe('src/generate-classname', () => {
       expect(moduleToTest('not-so.simple')).to.equal('not-so-simple');
       expect(moduleToTest('not--so..simple')).to.equal('not-so-simple');
       expect(moduleToTest('not.-so-.simple')).to.equal('not-so-simple');
+      expect(moduleToTest('something with some spaces')).to.equal('something-with-some-spaces');
+      expect(moduleToTest('something  with  some double  spaces')).to.equal('something-with-some-double-spaces');
     });
 
     it('returns cleaned complex class name', () => {
       expect(moduleToTest('not-so-simple', 'class--name')).to.equal('not-so-simple--class-name');
       expect(moduleToTest('not-so-simple', 'class', 'name')).to.equal('not-so-simple--class--name');
+      expect(moduleToTest('?question?')).to.equal('question');
+      expect(moduleToTest('  not trimmed  ')).to.equal('not-trimmed');
+      expect(moduleToTest(' ? double  spaces and -- !')).to.equal('double-spaces-and');
     });
   });
 });
