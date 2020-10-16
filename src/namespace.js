@@ -1,3 +1,1 @@
-const namespace = (key) => (key || '').replace(/@/g, '').replace(/[/_]/g, '-').toUpperCase();
-
-export default namespace;
+export default (key) => (key || '').replace(/@/g, '').replace(/[/_]/g, '-').toUpperCase();

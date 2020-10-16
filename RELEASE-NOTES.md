@@ -1,5 +1,11 @@
 # Quoin's React utils library release notes
 
+## 1.0.14 - 2020-10-06
+
+- Adding buildNamespace() and flattenFilespace()
+- Adding more clean up inside of generateClassname()
+- Adding generateClassnamesWithPrefix()
+
 ## 1.0.13 - 2020-10-02
 
 - Adding `Component.displayName` to `<SSR>`.

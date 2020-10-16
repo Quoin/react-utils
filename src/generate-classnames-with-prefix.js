@@ -59,9 +59,11 @@ export default (prefixes, keys) => {
         .replace(/_$/, '')
         .toUpperCase();
 
+      const value = key.toLowerCase().replace(/_/g, '-');
+
       return {
         ...cumulator,
-        [key]: generateClassname(suffix),
+        [key]: generateClassname(value),
       };
     },
     {

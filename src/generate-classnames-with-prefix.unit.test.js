@@ -73,7 +73,13 @@ describe(filespace(__filename), () => {
         SOME_SPACE: 'prefixes--some-space',
         DOUBLE_DASH: 'prefixes--double-dash',
         QUESTION: 'prefixes--question',
-        KEEP_CASE: 'prefixes--keep-Case',
+        KEEP_CASE: 'prefixes--keep-case',
+      });
+
+      expect(moduleToTest(['two', 'prefixes'], ['BIG_NAME', 'CLASS_?NAME?'])).to.deep.equal({
+        MODULE: 'two--prefixes',
+        BIG_NAME: 'two--prefixes--big-name',
+        CLASS_NAME: 'two--prefixes--class-name',
       });
     });
   });
