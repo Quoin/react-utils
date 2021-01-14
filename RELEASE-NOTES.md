@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.15 - 2021-01-13
+
+- Fixing `RoutesInfo.path()` to handle query params.
+
 ## 1.0.14 - 2020-10-06
 
 - Adding buildNamespace() and flattenFilespace()
