@@ -14,6 +14,7 @@ export default (componentName) => {
   cleanedName = cleanedName || '';
 
   const indexOfErrorBoundarySuffix = cleanedName.indexOf(ERROR_BOUNDARY_SUFFIX);
+  // eslint-disable-next-line max-len
   if ((indexOfErrorBoundarySuffix !== -1) && (cleanedName.length - ERROR_BOUNDARY_SUFFIX.length === indexOfErrorBoundarySuffix)) {
     cleanedName = cleanedName.slice(0, indexOfErrorBoundarySuffix);
   }

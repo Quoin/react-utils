@@ -29,6 +29,7 @@ const Component = ({
       </head>
       <body className={page.bodyClassnames}>
         <div id={PLACEHOLDER}><AppComponent /></div>
+        {/* eslint-disable-next-line react/no-danger,max-len */}
         <script id={PRELOADED_STATE_PLACEHOLDER_ID} dangerouslySetInnerHTML={{ __html: `window.${PRELOADED_STATE} = ${stateAsString};` }} />
         {generateScriptTags(page.assets)}
       </body>

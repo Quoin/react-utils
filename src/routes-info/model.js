@@ -25,7 +25,7 @@ class RoutesInfo {
 
   path(name) {
     const foundRoute = this.routes.find((route) => route.name === name);
-    return foundRoute ? foundRoute.route : '';
+    return foundRoute ? foundRoute.route.replace(/{\?.*}/, '') : '';
   }
 }
 
