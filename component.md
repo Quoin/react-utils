@@ -45,7 +45,7 @@ export { default } from './component';
 ```javascript
 import {
   generateClassnamesWithPrefix,
-  generateModuleAttributes
+  generateModuleAttributes,
 } from '@quoin/react-utils';
 
 import { ROOT_PREFIX } from '....../constants';
@@ -68,9 +68,13 @@ export const CLASSNAMES = generateClassnamesWithPrefix([ROOT_PREFIX, NAME], [
 ## namespace.js <a name="namespace"></a>
 
 ```javascript
-import namespace from './../namespace';
+import { buildNamespace } from '@quoin/react-utils';
 
-export default (path) => namespace(`COMPONENT_NAME${path ?  `.${path}` : ''}`);
+import namespace from '../namespace';
+
+import { NAME } from './constants';
+
+export default (path) => buildNamespace(namespace, NAME, path);
 ```
 
 Here, `COMPONENT_NAME` is your directory base name in upper-case.
@@ -83,7 +87,7 @@ This is the base component and should be stateless.
 ```javascript
 import {
   errorBoundary,
-  React,
+  PropTypes,
 } from '@quoin/react-utils';
 
 import { NAME } from './constants';
@@ -96,13 +100,22 @@ const Component = ({
 
   return (
     <div className=${NAME}>
-      <div>Times clicked: {props.counter}</div>
-      <div><span onClick={() => props.click()}>one more</span></div>
+      <div>Times clicked: {counter}</div>
+      <div><span onClick={click}>one more</span></div>
     </div>
   );
 };
 
 Component.displayName = NAME;
+
+Component.propTypes = {
+  click: PropTypes.func.isRequired,
+  counter: PropTypes.number,
+};
+
+Component.defaultProps = {
+  counter: 0,
+};
 
 export default errorBoundary(Component);
 ```
@@ -117,9 +130,8 @@ this logic should be in this file.
 ```javascript
 import {
   boundComponent,
-  IState,
   useDispatch,
-  useSelector
+  useSelector,
 } from '@quoin/react-utils';
 
 import Component from './component';
@@ -157,7 +169,6 @@ import { Map } from 'immutable';
 
 import {
   concatenateReducers,
-  getSubstateAttribute,
   namespacedActions
 } from '@quoin/react-utils';
 
@@ -173,10 +184,10 @@ const actionCreators = Object.freeze({
 export const orchestrators = Object.freeze({
 });
 
+// This one is placed before reducer because I, some times, use a selector
+// inside of the reducer to avoid logic duplication.
 export const selectors = Object.freeze({
 });
-
-const DEFAULT_ROOT_STATE = Map();
 
 export const reducer = concatenateReducers([{
 }]);
@@ -188,6 +199,8 @@ Since we know what data we need in the container, `selectors` is a good first
 candidate.
 
 ```javascript
+import { getSubstateAttribute } from '@quoin/react-utils';
+
 export const selectors = Object.freeze({
   counter: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, 0)
 });
@@ -210,6 +223,8 @@ export const orchestrators = Object.freeze({
 That defines what action creators are needed:
 
 ```javascript
+import { actionCreator } from '@quoin/react-utils';
+
 const actionCreators = Object.freeze({
   set: (counter) => actionCreator(actions.SET, { counter })
 });
@@ -221,6 +236,8 @@ const actionCreators = Object.freeze({
 The key to the `actionCreator()` above needs to be set on the `actions`.
 
 ```javascript
+import { namespacedActions } from '@quoin/react-utils';
+
 const actions = namespacedActions(namespace, [
   'SET'
 ]);
@@ -232,6 +249,47 @@ const actions = namespacedActions(namespace, [
 ```javascript
 export const reducer = concatenateReducers([{
   actions: [ actions.SET ],
-  reducer: (state = DEFAULT_ROOT_STATE, action) => setSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, action.payload?.counter)
+  reducer: (state, action) => setSubstateAttribute(state, namespace, ATTRIBUTES.COUNTER, action.payload?.counter)
+}]);
+```
+
+### setAttribute() as generic
+
+I've later realized that I could reduce code by using a generic `setAttribute()`
+action.
+
+```javascript
+const actions = namespacedActions(namespace, [
+  'SET_ATTRIBUTE',
+]);
+
+const actionCreators = Object.freeze({
+  setAttribute: (attribute, value) => actionCreator(action.SET_ATTRIBUTE, { attribute, value }),
+});
+
+export const orchestrators = Object.freeze({
+  someSpecific: (dispatch, values) => {
+    // Do something non-generic.
+  },
+  // Keeping specific to make it simple for the container.
+  setVariable1: (dispatch, value) => dispatch(actionCreators.setAttribute(ATTRIBUTES.VARIABLE1, value)),
+  setVariable2: (dispatch, value) => dispatch(actionCreators.setAttribute(ATTRIBUTES.VARIABLE2, value)),
+  setVariable3: (dispatch, value) => dispatch(actionCreators.setAttribute(ATTRIBUTES.VARIABLE3, value)),
+  setVariable4: (dispatch, value) => dispatch(actionCreators.setAttribute(ATTRIBUTES.VARIABLE4, value)),
+  setVariable5: (dispatch, value) => dispatch(actionCreators.setAttribute(ATTRIBUTES.VARIABLE5, value)),
+});
+
+export const selectors = Object.freeze({
+  // Keeping specific to make it simple for the container.
+  variable1: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.VARIABLE1, someDefault),
+  variable2: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.VARIABLE2, fromJS({})).toJSON(),
+  variable3: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.VARIABLE3, someDefault),
+  variable4: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.VARIABLE4, someDefault),
+  variable5: (state) => getSubstateAttribute(state, namespace, ATTRIBUTES.VARIABLE5, someDefault),
+});
+
+export const reducer = concatenateReducers([{
+  actions: [actions.SET_ATTRIBUTE],
+  reducer: (state, action) => setSubstateAttribute(state, namespace, action.payload.attribute, fromJS(action.payload.value)),
 }]);
 ```
