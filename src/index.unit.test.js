@@ -97,6 +97,7 @@ describe('src/index', () => {
     'generateClassname',
     'generateClassnameFromPrefix',
     'generateClassnamesWithPrefix',
+    'generateModuleAttributes',
     'getSubstate',
     'getSubstateAttribute',
     'hydrateWithStore',

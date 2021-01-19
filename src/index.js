@@ -50,6 +50,7 @@ export { default as flattenHal } from './flatten-hal';
 export { default as generateClassname } from './generate-classname';
 export { default as generateClassnameFromPrefix } from './generate-classname-from-prefix';
 export { default as generateClassnamesWithPrefix } from './generate-classnames-with-prefix';
+export { default as generateModuleAttributes } from './generate-module-attributes';
 export { default as getSubstate } from './get-substate';
 export { default as getSubstateAttribute } from './get-substate-attribute';
 export { default as hydrateWithStore } from './hydrate-with-store';

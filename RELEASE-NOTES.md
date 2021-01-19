@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.16 - 2021-01-18
+
+- Adding `generateModuleAttributes()`.
+
 ## 1.0.15 - 2021-01-13
 
 - Fixing `RoutesInfo.path()` to handle query params.

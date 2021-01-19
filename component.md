@@ -43,13 +43,25 @@ export { default } from './component';
 ## constants.js <a name="constants"></a>
 
 ```javascript
-export const NAME = 'counter-app';
+import {
+  generateClassnamesWithPrefix,
+  generateModuleAttributes
+} from '@quoin/react-utils';
+
+import { ROOT_PREFIX } from '....../constants';
+
+export const NAME = 'CounterApp';
 
 // This only if you don't want to hard-code the attribute within your
 // reducer/selectors
-export const ATTRIBUTES = Object.freeze({
-  COUNTER: 'counter'
-});
+export const ATTRIBUTES = generateModuleAttributes(NAME, [
+  'COUNTER',
+]);
+
+export const CLASSNAMES = generateClassnamesWithPrefix([ROOT_PREFIX, NAME], [
+  'SOME_CLASS',
+  'OTHER_CLASS',
+]);
 ```
 
 
