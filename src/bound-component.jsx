@@ -6,10 +6,11 @@ export default (
   getComponentProps,
   propTypes,
   defaultProps,
+  displayName,
 ) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
   const Container = (props) => <Component {...getComponentProps(props)} />;
-  Container.displayName = `${baseComponentName(Component)}Container`;
+  Container.displayName = `${displayName || baseComponentName(Component)}Container`;
   Container.propTypes = propTypes || Component.propTypes;
   Container.defaultProps = defaultProps || Component.defaultProps;
   return errorBoundary(Container);

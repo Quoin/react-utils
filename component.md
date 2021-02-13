@@ -151,6 +151,16 @@ const getComponentProps = (props) => {
 export default boundComponent(Component, getComponentProps);
 ```
 
+### boundComponent()
+
+The `boundComponent()` also has some optional parameters. You can overwrite the `Component`'s `propTypes`,
+`defaultProps`, and `displayName`.
+
+```javascript
+boundComponent(Component, getComponentProps[, propTypes[, defaultProps[, displayName]]])
+```
+
+
 
 ## flux.js <a name="flux"></a>
 

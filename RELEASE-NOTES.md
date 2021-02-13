@@ -1,5 +1,9 @@
 # Quoin's React utils library release notes
 
+## 1.0.17 - 2021-02-12
+
+- Adding optional `displayName` to `boundComponent()`.
+
 ## 1.0.16 - 2021-01-18
 
 - Adding `generateModuleAttributes()`.

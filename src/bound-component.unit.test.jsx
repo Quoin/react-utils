@@ -5,7 +5,7 @@ import moduleToTest from './bound-component';
 
 describe('src/bound-component', () => {
   it('exports a function with 4 params', () => {
-    expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(4);
+    expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(5);
   });
 
   describe('BoundComponent', () => {
@@ -60,6 +60,11 @@ describe('src/bound-component', () => {
       const BoundComponent = moduleToTest(Component, getComponentProps);
       const wrapper = mount(<BoundComponent {...getComponentProps({ existing: 'Yes it does' })} />);
       expect(wrapper.html()).to.equal('<div>got foo:bar, some:props, existing:Yes it does</div>');
+    });
+
+    it('uses baseDisplayName passed', () => {
+      const BoundComponent = moduleToTest(Component, getComponentProps, null, null, 'OtherFoo');
+      expect(BoundComponent).to.have.property('displayName', 'OtherFooContainerErrorBoundary');
     });
   });
 });
