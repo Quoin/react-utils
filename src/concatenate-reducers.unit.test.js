@@ -1,8 +1,10 @@
 import { fromJS } from 'immutable';
 
+import moduleToTest from './concatenate-reducers';
+
+import filespace from './_.test';
 import actionCreator from './action-creator';
 import { DEFAULT_STATE } from './constants';
-import moduleToTest from './concatenate-reducers';
 
 const FOO_TYPE = 'test-foo-type';
 
@@ -29,7 +31,7 @@ const guardedDefinition = {
   reducer: (state = DEFAULT_STATE) => state.set(GUARDED_ATTRIBUTE, GUARDED_VALUE),
 };
 
-describe('src/concatenate-reducers', () => {
+describe(filespace(__filename), () => {
   it('is a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

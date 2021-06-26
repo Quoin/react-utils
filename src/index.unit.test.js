@@ -11,12 +11,13 @@ import Skeleton from 'react-loading-skeleton';
 import ReactRouterDom from 'react-router-dom';
 import * as ReactRedux from 'react-redux';
 
+import * as moduleToTest from './index';
+
+import filespace from './_.test';
 import exposesProperties from './exposes-properties.test';
 import propertiesAreFrom from './properties-are-from.test';
 
-import * as moduleToTest from './index';
-
-describe('src/index', () => {
+describe(filespace(__filename), () => {
   const clone = { ...moduleToTest };
 
   after(() => {

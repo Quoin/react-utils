@@ -1,6 +1,8 @@
 import moduleToTest from './clean-key';
 
-describe('src/clean-key', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

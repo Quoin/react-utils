@@ -1,6 +1,8 @@
 import moduleToTest from './url-template-path';
 
-describe('src/routes-info/url-template-path', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

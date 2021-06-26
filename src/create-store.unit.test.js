@@ -1,13 +1,14 @@
 import { fromJS } from 'immutable';
 
+import moduleToTest from './create-store';
+
+import filespace from './_.test';
 import {
   TEST_INIT_ATTRIBUTE,
   TEST_INIT_TYPE,
   TEST_INIT_VALUE,
   TEST_REDUCER,
 } from './test-utils.test';
-
-import moduleToTest from './create-store';
 
 const isAStore = (store) => {
   expect(store).to.have.property('dispatch');
@@ -16,7 +17,7 @@ const isAStore = (store) => {
   expect(store).to.have.property('subscribe');
 };
 
-describe('src/create-store', () => {
+describe(filespace(__filename), () => {
   it('returns a store', () => {
     const store = moduleToTest(TEST_REDUCER, fromJS({}), [], false);
     isAStore(store);

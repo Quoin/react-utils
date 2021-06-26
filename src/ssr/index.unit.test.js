@@ -1,8 +1,9 @@
-import exposesProperties from '../exposes-properties.test';
-
 import * as moduleToTest from './index';
 
-describe('src/ssr/index', () => {
+import filespace from './_.test';
+import exposesProperties from '../exposes-properties.test';
+
+describe(filespace(__filename), () => {
   const clone = { ...moduleToTest };
 
   after(() => {

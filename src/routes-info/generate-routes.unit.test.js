@@ -1,6 +1,8 @@
 import moduleToTest from './generate-routes';
 
-describe('src/routes-info/generate-routes', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with 2 mandatory params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
   });

@@ -1,6 +1,8 @@
 import moduleToTest from './generate-classname';
 
-describe('src/generate-classname', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with no params (rest operator)', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(0);
   });
