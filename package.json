@@ -37,9 +37,6 @@
     "type": "git",
     "url": "git+https://github.com/Quoin/react-utils.git"
   },
-  "publicConfig": {
-    "access": "public"
-  },
   "keywords": [
     "Quoin",
     "React"
@@ -119,7 +116,15 @@
     "!dist/**/*.test.*",
     "*.md"
   ],
+  "babel": {
+    "sourceMaps": true,
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "mocha": {
+    "diff": true,
     "exit": true,
     "spec": "src/**/*.unit.test.js?(x)",
     "require": [
