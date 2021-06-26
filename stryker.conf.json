@@ -1,0 +1,15 @@
+{
+  "mutate": ["src/**/*.js?(x)", "!src/**/*.test.js?(x)"],
+  "testRunner": "mocha",
+  "reporters": ["progress", "clear-text", "html"],
+  "coverageAnalysis": "off",
+  "tempDirName": "reports/stryker-tmp",
+  "mochaOptions": {
+      "spec": ["src/**/*.unit.test.js?(x)"],
+      "require": [
+          "@babel/register",
+          "source-map-support/register",
+          "./src/setup.test.js"
+      ]
+  }
+}
