@@ -1,3 +1,3 @@
-import flattenFilespace from './flatten-filespace';
+import filespace from '../_.test';
 
-export default (filespace) => flattenFilespace(['src', filespace]);
+export default (filename) => filespace(filename);

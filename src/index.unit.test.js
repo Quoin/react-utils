@@ -92,6 +92,7 @@ describe('src/index', () => {
     'createStore',
     'DEFAULT_STATE',
     'errorBoundary',
+    'filespace',
     'flattenFilespace',
     'flattenHal',
     'generateClassname',
