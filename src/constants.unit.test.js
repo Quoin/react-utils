@@ -1,9 +1,10 @@
+import * as moduleToTest from './constants';
+
+import filespace from './_.test';
 import exposesProperties from './exposes-properties.test';
 import exposesStrings from './exposes-strings.test';
 
-import * as moduleToTest from './constants';
-
-describe('src/constants', () => {
+describe(filespace(__filename), () => {
   const clone = { ...moduleToTest };
 
   after(() => {

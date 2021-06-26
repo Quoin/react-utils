@@ -1,6 +1,8 @@
 import ModuleToTest from './model';
 
-describe('src/routes-info/model', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exposes a class', () => {
     expect(ModuleToTest).to.be.a('function').and.to.have.lengthOf(0);
     const instance = new ModuleToTest();

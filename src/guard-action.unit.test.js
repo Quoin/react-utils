@@ -1,9 +1,10 @@
 import { fromJS } from 'immutable';
 
+import moduleToTest from './guard-action';
+
+import filespace from './_.test';
 import actionCreator from './action-creator';
 import { DEFAULT_STATE } from './constants';
-
-import moduleToTest from './guard-action';
 
 const INITIAL_STATE = fromJS({ some: 'thing' });
 const TEST_ACTION = 'GUARD_ACTION_TYPE';
@@ -13,7 +14,7 @@ const TEST_VALUE = fromJS({ GUARD_ACTION_VALUE: 'GUARD_ACTION_VALUE' });
 // eslint-disable-next-line no-unused-vars
 const TEST_REDUCER = (state = DEFAULT_STATE, action) => state.set(TEST_ATTRIBUTE, TEST_VALUE);
 
-describe('src/guard-action', () => {
+describe(filespace(__filename), () => {
   it('exports a function with 2 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
   });

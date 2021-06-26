@@ -1,11 +1,13 @@
 import { fromJS, Map } from 'immutable';
 
-import namespace from './namespace.test';
 import moduleToTest from './set-substate';
+
+import filespace from './_.test';
+import namespace from './namespace.test';
 
 const EMPTY_STATE = Map();
 
-describe('src/set-substate', () => {
+describe(filespace(__filename), () => {
   it('is a function with 3 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(3);
   });

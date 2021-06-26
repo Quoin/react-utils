@@ -1,6 +1,8 @@
 import moduleToTest from './action-creator';
 
-describe('src/action-creator', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('should be a function with 2 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
   });

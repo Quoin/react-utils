@@ -1,6 +1,8 @@
 import moduleToTest from './generate-module-attributes';
 
-describe('src/generate-module-attributes', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with 2 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(2);
   });

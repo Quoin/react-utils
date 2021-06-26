@@ -1,6 +1,8 @@
 import moduleToTest from './namespace';
 
-describe('src/namespace', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with one param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

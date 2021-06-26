@@ -1,8 +1,9 @@
 import moduleToTest from './base-component-name';
 
+import filespace from './_.test';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
 
-describe('src/base-component-name', () => {
+describe(filespace(__filename), () => {
   it('should be a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

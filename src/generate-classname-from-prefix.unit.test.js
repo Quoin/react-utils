@@ -1,6 +1,8 @@
 import moduleToTest from './generate-classname-from-prefix';
 
-describe('src/generate-classname-from-prefix', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with rest operator', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(0);
   });

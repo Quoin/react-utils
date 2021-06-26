@@ -1,12 +1,13 @@
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 
+import moduleToTest from './error-boundary';
+
+import filespace from './_.test';
 import { ERROR_BOUNDARY_SUFFIX } from './constants';
 import { TestComponent } from './test-utils.test';
 
-import moduleToTest from './error-boundary';
-
-describe('src/error-boundary', () => {
+describe(filespace(__filename), () => {
   it('is a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

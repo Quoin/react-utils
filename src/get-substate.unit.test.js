@@ -1,5 +1,6 @@
 import { fromJS, Map } from 'immutable';
 
+import filespace from './_.test';
 import moduleToTest from './get-substate';
 import namespace from './namespace.test';
 
@@ -10,7 +11,7 @@ const STATE = fromJS({
   },
 });
 
-describe('src/get-substate', () => {
+describe(filespace(__filename), () => {
   it('is a function with 2 params', () => {
     expect(moduleToTest).to.be.a('function').and.have.lengthOf(2);
   });

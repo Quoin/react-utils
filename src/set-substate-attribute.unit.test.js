@@ -1,11 +1,13 @@
 import { fromJS } from 'immutable';
 
 import moduleToTest from './set-substate-attribute';
+
+import filespace from './_.test';
 import namespace from './namespace.test';
 
 const ATTRIBUTE = 'some-attribute';
 
-describe('src/set-substate-attribute', () => {
+describe(filespace(__filename), () => {
   it('is a function with 4 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(4);
   });

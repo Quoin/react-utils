@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import moduleToTest from './bound-component';
 
-describe('src/bound-component', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('exports a function with 4 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(5);
   });

@@ -1,6 +1,8 @@
 import moduleToTest from './simple-clean';
 
-describe('src/routes-info/simple-clean', () => {
+import filespace from './_.test';
+
+describe(filespace(__filename), () => {
   it('is a function with 1 param', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(1);
   });

@@ -1,5 +1,6 @@
 import { fromJS, Map } from 'immutable';
 
+import filespace from './_.test';
 import moduleToTest from './get-substate-attribute';
 import namespace from './namespace.test';
 
@@ -9,7 +10,7 @@ const EMPTY_SUBSTATE = EMPTY_STATE.set(namespace(), Map());
 const WITHOUT_ATTRIBUTE = EMPTY_STATE.set(namespace(), fromJS({ other: 'attribute' }));
 const WITH_ATTRIBUTE = WITHOUT_ATTRIBUTE.setIn([namespace(), ATTRIBUTE], 'something');
 
-describe('src/get-substate-attribute', () => {
+describe(filespace(__filename), () => {
   it('exposes a function with 4 params', () => {
     expect(moduleToTest).to.be.a('function').and.to.have.lengthOf(4);
   });

@@ -1,11 +1,12 @@
 import moduleToTest from './namespaced-actions';
 
+import filespace from './_.test';
 import namespace from './namespace';
 
 const NAMESPACE = namespace('@quoin/react-utils');
 const myNamespace = (key) => `${NAMESPACE}.${key}`;
 
-describe('src/namespaced-actions', () => {
+describe(filespace(__filename), () => {
   it('should be a function with 2 params', () => {
     expect(moduleToTest).to.be.a('function').and.have.lengthOf(2);
   });
